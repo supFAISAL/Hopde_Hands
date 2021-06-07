@@ -1,0 +1,139 @@
+
+
+.skills {
+	padding: 100px 0 100px 0;
+	background-color: #F5F5F5;
+}
+
+.container {
+	position: relative;
+	width: 100%;
+    /* OLD max-width: 960px; */
+    max-width: 100%;
+	margin: 0 auto;
+	padding: 0 20px;
+	box-sizing: border-box;
+}
+
+
+    /* For devices larger than 550px */
+/* @media (min-width: 550px) {
+    .container {
+        width: 80%;
+    }
+} */
+
+    .block {
+        width: 120px;
+  height: 2px;
+  background: #e55d87; /* Old browsers */
+  background: -moz-linear-gradient(-45deg, #e55d87 0%, #5fc3e4 100%);
+  background: -webkit-linear-gradient(-45deg, #e55d87 0%, #5fc3e4 100%);
+  background: linear-gradient(135deg, #e55d87 0%, #5fc3e4 100%);
+  margin-bottom: 50px;
+    }
+
+    .container:after, .row:after, .u-cf {
+        content: "";
+        display: table;
+        clear: both;
+    }
+
+    .title .icon {
+        color: #FFFFFF;
+        font-size: 50px;
+        
+
+    }#team .icon {
+        font-size: 26px;
+    }
+
+    .icon {
+        padding-left: 10px;
+        color: #e55d87;
+        position: relative;
+        top: 7px;
+    }
+    ::ng-deep .ant-tabs>.ant-tabs-nav, .ant-tabs>div>.ant-tabs-nav{
+        font-family: almarai,'roboto mono';
+        margin-left: 50px;
+    }
+
+
+::ng-deep .ant-tabs-tab.ant-tabs-tab .ant-tabs-tab-btn{
+    font-size: 17px;
+}
+
+::ng-deep .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn{
+    font-size: 25px;
+}
+
+@media (min-width: 550px) {
+    h1 {
+        font-size: 5.0rem;
+        font-family: 'Markazi Text', 'Open Sans';
+    }
+    h2 {
+        font-size: 4.2rem;
+        font-family: 'Markazi Text', 'Open Sans';
+    }
+    h3 {
+        font-size: 3.6rem;
+        font-family: 'Almarai', 'Open Sans';
+    }
+    h4 {
+        font-size: 3.0rem;
+        font-family: 'Markazi Text', 'Open Sans';
+    }
+    h5 {
+        font-size: 2.4rem;
+        font-family: 'Markazi Text', 'Open Sans';
+    }
+    h6 {
+        font-size: 1.5rem;
+        font-family: 'Markazi Text', 'Open Sans';
+    }
+    }
+    p {
+        margin-top: 0;
+        
+    }
+    /* Links
+    ********************************************************************* */
+    a {
+        color: #1EAEDB;
+    }
+    a:hover {
+        color: #0FA0CE;
+    }
+
+    P{
+
+        font-size: 2rem;
+        font-family:'Tajawal' ;
+        direction : rtl;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+        margin-top: 0;
+        margin-bottom: 2rem;
+        font-weight: 300;
+        font-family: 'Almarai', 'Open Sans','Markazi Text';
+        direction: rtl;
+    }
+    h1 {
+        font-size: 4.0rem;
+        line-height: 1.2;
+        letter-spacing: -.1rem;
+        font-family: 'Markazi Text', 'Open Sans';
+        direction: rtl;
+    }
+
+    h3{
+        font-size: 3.0rem;
+        line-height: 1.3;
+        letter-spacing: -.1rem;
+        font-family: 'Almarai','Open Sans', Helvetica, Arial, sans-serif;
+        direction:rtl;
+    }
+

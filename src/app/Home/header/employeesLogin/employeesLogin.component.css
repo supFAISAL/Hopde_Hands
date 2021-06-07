@@ -1,0 +1,36 @@
+.login-form {
+    max-width: 300px;
+  }
+
+  .login-form-margin {
+    margin-bottom: 16px;
+  }
+
+  .login-form-forgot {
+    float: right;
+  }
+
+  .login-form-button {
+    width: 100%;
+  }
+  
+  ::ng-deep .vertical-center-modal .ant-modal {
+    top: 10px;
+  }
+
+  ::ng-deep .ant-modal-title{
+    font-family:Tajawal, 'Roboto Mono';
+      color: #474544;
+      font-size: 28px;
+      font-weight: 800;
+      letter-spacing: .5px;
+      text-align: center;
+      text-transform: uppercase;
+  }
+  ::ng-deep .ant-modal-footer{
+      display: none;
+  }
+
+  ::ng-deep .ant-message{
+    font-family: almarai,'Roboto Mono';
+  }

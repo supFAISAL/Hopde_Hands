@@ -1,0 +1,30 @@
+
+.rowStyle{
+    position: relative;
+    top: 15%;
+}
+
+tr>th{
+    text-align: center;
+    font-family: Tajawal,'Roboto Mono';
+    font-weight: bolder;
+}
+tr>td   {
+    text-align: center;
+    font-family: 'Oswald', 'Tajawal';
+    font-weight: lighter;
+    font-size: medium;
+}
+
+::ng-deep .ant-table-pagination.ant-pagination{
+    direction: ltr;
+}
+
+.deletebtn:hover{
+    cursor: pointer;
+    color: #f05454;
+  }
+
+  ::ng-deep .ant-message{
+    font-family: almarai,'Roboto Mono';
+  }

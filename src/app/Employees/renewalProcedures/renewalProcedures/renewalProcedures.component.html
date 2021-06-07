@@ -1,0 +1,43 @@
+    <!-- we added the row and col div's to arrange things  -->
+    <div  nz-row class="rowStyle">
+      <div nz-col [nzSpan]="24">
+        <!-- nzScroll is for making the table scrollable if there is much data -->
+        <button (click) ='printTable(filterTable.data)' class="addBtn" nz-button nzType="text"><i class="fas fa-print" style="padding-right: 10px;"></i>طباعة</button>
+    <nz-table #filterTable dir="rtl" #fixedTable nzBordered #basicTable [nzData]="contracts" [nzScroll]="{ x: '1150px', y: '480px' }">
+      <thead>
+        <tr>
+          <th>رقم التفويض</th>
+          <th>تاريخ التفويض</th>
+          <th>نوع الإجراء</th>
+          <th>رقم العقد</th>
+          <th>الجنسية</th>
+          <th
+            [nzFilters]="listOfFilter"
+            [nzFilterFn]="filterFn">
+            نوع العقد
+          </th>
+          <th>قيمة العقد</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let data of basicTable.data">
+
+          <td>{{ data.authorizationNumber }}</td>
+          <td style=" font-family: Almarai,Oswald;">{{ data.authorizationDate.toLocaleDateString('default')}}</td>
+          <td>{{ data.procedureType }}</td>
+          <td>{{ data.contractNumber }}</td>
+          <td>{{ data.nationality }}</td>
+          <td>{{ data.contractType }}</td>
+          <!-- .toLocaleString('en') to make the comma after a thousend  -->
+          <td class="moneyStyle"> SAR {{ data.contractValue.toLocaleString('en') }}</td>
+        </tr>
+      </tbody>
+    </nz-table>
+    </div>
+    </div>
+    
+    
+    
+    
+    
+    

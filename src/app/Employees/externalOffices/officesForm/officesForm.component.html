@@ -1,0 +1,161 @@
+<button
+  nzBlock
+  nz-button
+  [nzType]="'text'"
+  nzShape="round"
+  nzSize="large"
+  (click)="showModal()"
+  class="btnStyle"
+>
+  <span class="btnText">إضافة مكتب</span>
+</button>
+<nz-modal
+  nzoverFlow="true"
+  nzWidth="800px"
+  nzWrapClassName="vertical-center-modal"
+  (nzOnCancel)="handleCancel()"
+  [(nzVisible)]="isVisible"
+  nzTitle="• نموذج إدخال البيانات •"
+>
+  <!-- نموذج بيانات الكفيل -->
+  <div class="container">
+    <form
+      nz-form
+      dir="rtl"
+      [formGroup]="validateForm"
+      (ngSubmit)="submitForm()"
+    >
+      <nz-divider nzText="بيانات المكتب"></nz-divider>
+      <div class="row">
+        <div class="col-8">
+          <nz-form-item>
+            <nz-form-label nzRequired class="client">إسم المكتب</nz-form-label>
+            <nz-form-control nzHasFeedback nzErrorTip="الرجاء إدخال البيانات المطلوبة">
+              <input class="inputStyle" nz-input formControlName="office" />
+            </nz-form-control>
+          </nz-form-item>
+        </div>
+      </div>
+      <div class="row row-cols-2">    
+      
+      <div class="col">
+        <nz-form-item>
+          <nz-form-label nzRequired class="client">رقم المكتب</nz-form-label>
+          <nz-form-control nzHasFeedback nzErrorTip="الرجاء إدخال البيانات المطلوبة">
+            <input class="inputStyle" nz-input formControlName="id" />
+          </nz-form-control>
+        </nz-form-item>
+      </div>
+      <div class="col">
+        <nz-form-item>
+          <nz-form-label nzRequired class="client">رقم السجل التجاري</nz-form-label>
+          <nz-form-control nzHasFeedback nzErrorTip="الرجاء إدخال البيانات المطلوبة">
+            <input
+              class="inputStyle"
+              nz-input
+              formControlName="commercialRegistrationNo"
+            />
+          </nz-form-control>
+        </nz-form-item>
+      </div>
+      <div class="col">
+        <nz-form-item>
+          <nz-form-label nzRequired class="client">الدولة</nz-form-label>
+          <nz-form-control nzHasFeedback nzErrorTip="الرجاء إدخال البيانات المطلوبة">
+            <input class="inputStyle" nz-input formControlName="country" />
+          </nz-form-control>
+        </nz-form-item>
+      </div>
+     <div class="col">
+      <nz-form-item>
+        <nz-form-label nzRequired class="client">العنوان</nz-form-label>
+        <nz-form-control nzHasFeedback nzErrorTip="الرجاء إدخال البيانات المطلوبة">
+          <input class="inputStyle" nz-input formControlName="address" />
+        </nz-form-control>
+      </nz-form-item>
+     </div>
+    </div>
+      <nz-divider nzText="بيانات المنسق"></nz-divider>
+<div class="row row-cols-2">
+  <div class="col">
+    <nz-form-item>
+      <nz-form-label nzRequired class="client">الإسم</nz-form-label>
+      <nz-form-control nzHasFeedback nzErrorTip="الرجاء إدخال البيانات المطلوبة">
+        <input
+          class="inputStyle"
+          nz-input
+          formControlName="coordinatorName"
+        />
+      </nz-form-control>
+    </nz-form-item>
+  </div>
+      <div class="col">
+        <nz-form-item>
+          <nz-form-label nzRequired class="client">رقم الجوال</nz-form-label>
+          <nz-form-control nzHasFeedback nzErrorTip="الرجاء إدخال البيانات المطلوبة">
+            <input
+              class="inputStyle"
+              nz-input
+              formControlName="coordinatorNumber"
+            />
+          </nz-form-control>
+        </nz-form-item>
+      </div>
+      <div class="col">
+        <nz-form-item>
+          <nz-form-label nzRequired class="client">الإيميل</nz-form-label>
+          <nz-form-control nzHasFeedback nzErrorTip="الرجاء إدخال البيانات المطلوبة">
+            <input class="inputStyle" nz-input formControlName="email" />
+          </nz-form-control>
+        </nz-form-item>
+      </div>
+      <div class="col">
+        <nz-form-item>
+          <nz-form-label nzRequired class="client">إسم المستخدم</nz-form-label>
+          <nz-form-control nzHasFeedback nzErrorTip="الرجاء إدخال البيانات المطلوبة">
+            <input class="inputStyle" nz-input formControlName="username" />
+          </nz-form-control>
+        </nz-form-item>
+      </div>
+      <div class="col">
+        <nz-form-item>
+          <nz-form-label nzRequired class="client">كلمة المرور</nz-form-label>
+          <nz-form-control nzHasFeedback [nzErrorTip]="combineTpl">
+            <input
+              minlength="4"
+              maxlength="8"
+              required
+              class="inputStyle"
+              nz-input
+              formControlName="password"
+            />
+            <ng-template #combineTpl let-control>
+              <ng-container *ngIf="control.hasError('maxlength')"
+                >MaxLength is 8 and MinLength is 4</ng-container
+              >
+              <ng-container *ngIf="control.hasError('minlength')"
+                >MaxLength is 8 and MinLength is 4</ng-container
+              >
+              <ng-container *ngIf="control.hasError('required')"
+                >Please input Password</ng-container
+              >
+            </ng-template>
+          </nz-form-control>
+        </nz-form-item>
+      </div>
+      
+      </div>
+    </form>
+  </div>
+  <div *nzModalFooter>
+    <button nz-button nzType="default" (click)="handleCancel()">Cancel</button>
+    <button
+      [disabled]="!validateForm.valid"
+      nz-button
+      nzType="primary"
+      (click)="submitForm()"
+    >
+      Submit
+    </button>
+  </div>
+</nz-modal>

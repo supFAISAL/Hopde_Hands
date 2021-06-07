@@ -1,0 +1,208 @@
+<!-- <button (click)="exportingExcel()" class="addBtn" style="margin-right: 10px;" nz-button nzType="text"><i class="fas fa-file-excel" style="padding-right: 10px;"></i>EXCEL</button>
+<nz-table #basicTable nzSize="small" nzBordered [nzData]="allOrders" class="basicTable" >
+  <thead>
+    <tr>
+      <th style="font-family: almarai;">ملف</th>
+      <th style="font-family: almarai;">العقد</th>
+      <th>CV</th>
+      <th>Name</th>
+      <th nzCustomFilter>ID
+        <nz-filter-trigger [(nzVisible)]="visibleId" [nzActive]="searchValueId.length > 0" [nzDropdownMenu]="menuId">
+          <i nz-icon nzType="search"></i>
+        </nz-filter-trigger>
+      </th>
+      <th>Visa</th>
+      <th>HK_Name</th>
+      <th>Nationality</th>
+      <th nzCustomFilter>Passport
+        <nz-filter-trigger [(nzVisible)]="visiblePassport" [nzActive]="searchValuePassport.length > 0" [nzDropdownMenu]="menuPassport">
+          <i nz-icon nzType="search"></i>
+        </nz-filter-trigger>
+      </th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr *ngFor="let data of basicTable.data"> -->
+      <!-- <td>
+        <i class="fas fa-trash-alt deletebtn" nz-popconfirm nzPopconfirmTitle="Sure to delete?" (nzOnConfirm)="delete(data.client.id)"></i>
+      </td> -->
+<!--       <td>
+        <i class="fas fa-print print" (click)="printData(data)"></i>
+
+      </td>
+      <td>
+        <i class="fas fa-print print" (click)="contractPrint(data)"></i>
+      </td>
+      <td class=" {{data.worker.backout?'backout':null}} ">{{ data.worker.office }}</td>
+      <td class=" {{data.worker.backout?'backout':null}} ">{{ data.client.fullName }}</td>
+      <td class=" {{data.worker.backout?'backout':null}} ">{{ data.client.id }}</td>
+      <td class=" {{data.worker.backout?'backout':null}} ">{{ data.worker.visa }}</td>
+      <td class=" {{data.worker.backout?'backout':null}} ">{{ data.worker.fullName }}</td>
+      <td class=" {{data.worker.backout?'backout':null}} ">{{ data.worker.nationality }}</td>
+      <td class=" {{data.worker.backout?'backout':null}} ">{{ data.worker.passport.passportNum }}</td>
+      <td>
+         <app-proceduresProgress [orderData]="data"></app-proceduresProgress>   
+      </td>
+      <td>
+        <button nz-popconfirm nzPopconfirmTitle="Sure to backout?" (nzOnConfirm)="backout(data.worker.visa)" [disabled]="data.worker.backout"  class="btnStyle" nz-button nzType="text" >backout</button>
+      </td>
+      
+      
+    </tr>
+  </tbody>
+</nz-table>
+
+<nz-dropdown-menu #menuId="nzDropdownMenu">
+  <div class="ant-table-filter-dropdown">
+    <div class="search-box">
+      <input type="text" nz-input placeholder="Search ID" [(ngModel)]="searchValueId" />
+      <button nz-button nzSize="small" nzType="primary" (click)="searchId()" class="search-button">
+        Search
+      </button>
+      <button nz-button nzSize="small" (click)="resetId()">Reset</button>
+    </div>
+  </div>
+</nz-dropdown-menu>
+
+<nz-dropdown-menu #menuPassport="nzDropdownMenu">
+  <div class="ant-table-filter-dropdown">
+    <div class="search-box">
+      <input type="text" nz-input placeholder="Search Passport" [(ngModel)]="searchValuePassport" />
+      <button nz-button nzSize="small" nzType="primary" (click)="searchPassport()" class="search-button">
+        Search
+      </button>
+      <button nz-button nzSize="small" (click)="resetPassport()">Reset</button>
+    </div>
+  </div>
+</nz-dropdown-menu>
+
+
+<ng-template #checkedTemplate><i class="fas fa-check"></i></ng-template>
+    <ng-template #unCheckedTemplate><i class="fas fa-times"></i></ng-template> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <button (click)="exportingExcel()" class="addBtn" style="margin-right: 10px;" nz-button nzType="text"><i class="fas fa-file-excel" style="padding-right: 10px;"></i>EXCEL</button>
+  <nz-table nzSize='small' #fixedTable nzBordered #nestedTable [nzData]="allOrders" [nzPageSize]="10" class="basicTable">
+  <thead>
+    <tr>
+      <th></th>
+      <!-- <th>CV</th> -->
+      <th>Name</th>
+      <th nzCustomFilter>ID
+        <nz-filter-trigger [(nzVisible)]="visibleId" [nzActive]="searchValueId.length > 0" [nzDropdownMenu]="menuId">
+          <i nz-icon nzType="search"></i>
+        </nz-filter-trigger>
+      </th>
+      <!-- <th>Visa</th>
+      <th>HK_Name</th>
+      <th>Nationality</th>
+      <th nzCustomFilter>Passport
+        <nz-filter-trigger [(nzVisible)]="visiblePassport" [nzActive]="searchValuePassport.length > 0" [nzDropdownMenu]="menuPassport">
+          <i nz-icon nzType="search"></i>
+        </nz-filter-trigger>
+      </th>
+      <th>Action</th> -->
+    </tr>
+  </thead>
+  <tbody>
+    <ng-template ngFor let-data [ngForOf]="nestedTable.data">
+    <tr>
+      <!-- <td>
+        <i class="fas fa-trash-alt deletebtn" nz-popconfirm nzPopconfirmTitle="Sure to delete?" (nzOnConfirm)="delete(data.client.id)"></i>
+      </td> -->
+      <td [(nzExpand)]="data.client.expand"></td> 
+
+      <td >{{ data.client.fullName }}</td>
+      <td>{{ data.client.id }}</td>
+<!-- 
+      <td>
+         <app-proceduresProgress [orderData]="data"></app-proceduresProgress>   
+      </td>
+      <td>
+        <button nz-popconfirm nzPopconfirmTitle="Sure to backout?" (nzOnConfirm)="backout(data.worker.visa)" [disabled]="data.worker.backout"  class="btnStyle" nz-button nzType="text" >backout</button>
+      </td> -->
+      
+      
+    </tr>
+    <tr [nzExpand]="data.client.expand">
+      <nz-table #fixedTable nzBordered #innerTable [nzData]="data.workers" nzSize="small" [nzShowPagination]="false" class="basicTable">
+        <thead>
+          <tr>
+      <th style="font-family: almarai;">العقد</th>
+      <th style="font-family: almarai;">ملف</th>
+            <th>CV</th>
+            <th>Name</th>
+            <th>Passport</th>
+            <th>Visa</th>
+            <th>Nationality</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let workersData of innerTable.data">
+            <td>
+              <i class="fas fa-print print" (click)="contractPrint(workersData,data.client)"></i>
+            </td>
+            <td>
+              <i class="fas fa-print print" (click)="printData(workersData,data.client)"></i>      
+            </td>
+            <td>{{ workersData.worker.office }}</td>
+            <td>{{ workersData.worker.fullName }}</td>
+            <td>{{ workersData.worker.passport.passportNum }}</td>
+            <td>{{ workersData.worker.visa}}</td>
+            <td>{{ workersData.worker.nationality}}</td>
+            <td>
+              <app-proceduresProgress [orderData]="workersData"></app-proceduresProgress>   
+           </td>
+            
+          </tr>
+        </tbody>
+      </nz-table>
+  </tr>
+  </ng-template>
+  </tbody>
+</nz-table>
+
+<nz-dropdown-menu #menuId="nzDropdownMenu">
+  <div class="ant-table-filter-dropdown">
+    <div class="search-box">
+      <input type="text" nz-input placeholder="Search ID" [(ngModel)]="searchValueId" />
+      <button nz-button nzSize="small" nzType="primary" (click)="searchId()" class="search-button">
+        Search
+      </button>
+      <button nz-button nzSize="small" (click)="resetId()">Reset</button>
+    </div>
+  </div>
+</nz-dropdown-menu>
+
+<nz-dropdown-menu #menuPassport="nzDropdownMenu">
+  <div class="ant-table-filter-dropdown">
+    <div class="search-box">
+      <input type="text" nz-input placeholder="Search Passport" [(ngModel)]="searchValuePassport" />
+      <button nz-button nzSize="small" nzType="primary" (click)="searchPassport()" class="search-button">
+        Search
+      </button>
+      <button nz-button nzSize="small" (click)="resetPassport()">Reset</button>
+    </div>
+  </div>
+</nz-dropdown-menu>
+
+
+<ng-template #checkedTemplate><i class="fas fa-check"></i></ng-template>
+    <ng-template #unCheckedTemplate><i class="fas fa-times"></i></ng-template>

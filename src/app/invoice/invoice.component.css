@@ -1,0 +1,18 @@
+.client { page-break-after: always; }
+.client:last-child { page-break-after: avoid; }
+.worker{ page-break-before: always; }
+
+
+.header, .header-space, .footer, .footer-space { height: 100px; }
+.header { position: fixed; top: 0; }
+.footer { position: fixed; bottom: 0; }
+@media screen {
+  :host {
+    display: none;
+  }
+}
+
+    @media print {
+      @page { margin: 0; }
+      body { margin: 1.6cm; }
+    }

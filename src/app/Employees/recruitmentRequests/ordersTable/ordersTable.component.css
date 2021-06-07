@@ -1,0 +1,164 @@
+.switchLabel {
+    font-family:  'Markazi Text',Roboto;
+    font-size: 25px;
+    color: white;
+    margin-left:15%;
+    position: relative;
+    bottom: 2px;
+
+  }
+
+  .modalTitle{
+
+        font-family: Tajawal , "Roboto Mono";
+        color: #474544;
+        font-size: 28px;
+        font-weight: 800;
+        letter-spacing: .5px;
+        text-transform:uppercase;
+        margin-bottom: 35px;
+  }
+
+  .titleChildren{
+        font-family: Tajawal,Roboto;
+        color: #474544;
+        font-size: 15px;
+        font-weight: 150;
+        letter-spacing: 1px;
+        text-transform: UpperCase;
+        color: grey;
+        
+  }
+  
+  .center {
+    text-align: center;
+  }
+
+  ::ng-deep .ant-switch{
+background-color: #eeeeee;
+  }
+
+  ::ng-deep.ant-switch-checked{
+      background-color: #1890ff;
+  } 
+
+  .card{
+
+    width:50%;
+    background-color: #0f3057;
+    border-style: groove;
+    margin-top: 10%;
+    padding: 30px 35px;
+    height:fit-content;
+    align-content: center;
+  }
+
+ ::ng-deep .ant-card-bordered{
+
+    border-radius:10px;
+
+  }
+
+  .search-box {
+    padding: 8px;
+  }
+
+  .search-box input {
+    width: 188px;
+    margin-bottom: 8px;
+    display: block;
+  }
+
+  .search-box button {
+    width: 90px;
+  }
+
+  .search-button {
+    margin-right: 8px;
+  }
+
+  .status{
+    font-family: Tajawal , "Roboto Mono";
+    text-transform: uppercase;
+
+  }
+
+  .deletebtn:hover{
+    cursor: pointer;
+    color: #f05454;
+  }
+  .deletebtn{
+    font-size: 17px;
+  color: #455d7a;
+  }
+
+  
+.rowStyle{
+  position: relative;
+  top: 15%;
+}
+
+/* tr>th{
+  text-align: center;
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-weight: bolder;
+  font-size: medium;
+}
+tr>td   {
+  text-align: center;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: lighter;
+  font-size: small;
+} */
+
+tr th{
+  text-align: center;
+  font-family: Tajawal,'Roboto Mono';
+}
+tr   {
+  text-align: center;
+  font-family: Tajawal,'Roboto Mono';
+  font-size: medium;
+}
+
+::ng-deep .ant-table-pagination.ant-pagination{
+  direction: ltr;
+}
+
+.print:hover{
+  cursor: pointer;
+  color: #00a8cc;
+}
+.print{
+  font-size: 17px;
+  color: #455d7a;
+}
+
+::ng-deep .ant-message{
+  font-family: almarai,'Roboto Mono';
+}
+
+.basicTable{
+  position: relative;
+  top: 15%;
+}
+
+.btnStyle{
+  font-family: "Roboto Mono";
+  text-transform: uppercase;
+  border-color:#f05454;
+}
+
+.backout{
+  color: #ec4646;
+}
+
+.addBtn{
+  width: fit-content;
+  background-color: #1f3c88;
+  font-family: Tajawal,'Roboto Mono';
+  color: white;
+  top: 15%;
+  position: relative;
+
+}

@@ -1,0 +1,36 @@
+<section *ngIf="clientData.length!==0" class="portfolio" id = "procedure">
+  <div class="container">
+<h1 class="welcome">مرحباً | {{clientData[0]?.client.fullName}}</h1>
+<div class="block"></div>
+<div class="row"></div>
+<h3 class="proFormH2">| {{clientData[0]?.client.id}} :رقم الهوية|</h3>
+
+<!-- For The Card  -->
+<div *ngFor="let clients of clientData;">
+<div *ngFor="let workers of clients.workers;">
+  <div class="Cardcontainer">
+    <div class="svgBackground"></div>
+    <div class="svgBackground2"></div>
+    <div class="circle"></div>
+    <img class="profileImg" src="../../../../assets/woman.png"/>
+    <div class="textContainer">
+      <div nz-tooltip nzTooltipTitle="إضغط هنا" nzTooltipColor = '#2db7f5' nzTooltipPlacement = 'rightTop' (click)="workers.worker.show=!workers.worker.show" class="buttonBox">{{workers.worker.fullName}}</div>
+      <div class="buttonBox2"><span style="font-family: 'Markazi Text';color: white;">تأشيرة : </span>{{workers.worker.visa}}</div>
+      <div class="buttonBox2" ><span style="font-family: 'Markazi Text';color: white;">الدولة : </span>{{workers.worker.nationality}}</div>
+      <!-- <div class="buttonBox2" ><span style="font-family: 'Markazi Text';color: white;">موعد الوصول : </span>{{workers.procedures[workers.procedures.length - 1].date[0]}}</div> -->
+  
+      
+  
+  </div>
+  </div>
+ <div *ngIf="workers.worker.show" [ngSwitch]="workers.worker.nationality">
+    <app-philippinesProgress [RecivedProcedures] = "workers.procedures" *ngSwitchCase=" 'Philippines' "></app-philippinesProgress>
+    <app-bangladeshProgress [RecivedProcedures] = "workers.procedures" *ngSwitchCase=" 'Bangladesh' ">output</app-bangladeshProgress>
+    <app-kenyaProgress [RecivedProcedures] = "workers.procedures" *ngSwitchCase=" 'Kenya' ">output</app-kenyaProgress>
+    <app-ugandaProgress [RecivedProcedures] = "workers.procedures" *ngSwitchCase=" 'Uganda' ">output</app-ugandaProgress>
+  </div>
+  </div>
+</div>
+
+</div>
+</section>

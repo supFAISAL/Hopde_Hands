@@ -1,0 +1,91 @@
+.about {
+  padding: 100px 0 50px 0;
+  background-color: white;
+}
+
+.icon {
+  padding-left: 10px;
+  color: #e55d87;
+}
+
+.container {
+	position: relative;
+	width: 100%;
+    /* OLD max-width: 960px; */
+    max-width: 100%;
+	margin: 0 auto;
+	padding: 0 20px;
+	box-sizing: border-box;
+}
+
+    /* For devices larger than 550px */
+    @media (min-width: 550px) {
+      .container {
+          width: 80%;
+      }
+  }
+
+.block {
+  width: 70px;
+  height: 2px;
+  background: #e55d87; /* Old browsers */
+  background: -moz-linear-gradient(-45deg, #e55d87 0%, #5fc3e4 100%);
+  background: -webkit-linear-gradient(-45deg, #e55d87 0%, #5fc3e4 100%);
+  background: linear-gradient(135deg, #e55d87 0%, #5fc3e4 100%);
+  margin-bottom: 50px;
+}
+
+p {
+  margin-top: 0;
+}
+/* Links
+            ********************************************************************* */
+a {
+  color: #1eaedb;
+}
+a:hover {
+  color: #0fa0ce;
+}
+
+P {
+  font-size: 2rem;
+  font-family: "Tajawal";
+  direction: rtl;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-top: 0;
+  margin-bottom: 2rem;
+  font-weight: 300;
+  font-family: "Almarai", "Open Sans", "Markazi Text";
+  direction: rtl;
+}
+h1 {
+  font-size: 4rem;
+  line-height: 1.2;
+  letter-spacing: -0.1rem;
+  font-family: "Markazi Text", "Open Sans";
+  direction: rtl;
+}
+
+h3 {
+  font-size: 3rem;
+  line-height: 1.3;
+  letter-spacing: -0.1rem;
+  font-family: "Almarai", "Open Sans", Helvetica, Arial, sans-serif;
+  direction: rtl;
+}
+
+[nz-carousel-content] {
+  text-align: center;
+  height: 160px;
+  line-height: 160px;
+  background: #364d79;
+  color: #fff;
+  overflow: hidden;
+}

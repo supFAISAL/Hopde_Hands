@@ -1,0 +1,283 @@
+<button [disabled]="orderData.backout" class="btnStyle" nzShape="round" nz-button nzType="dashed" (click)="showModal()">
+  <span>Procedures</span>
+</button>
+<nz-modal
+nzMaskClosable = 'false'
+  [(nzVisible)]="isVisible"
+  nzWidth="1000px"
+  (nzOnCancel)="handleCancel()"
+  [nzFooter]="switchModalFooter"
+>
+  <!-- this div to align the modal head in the center nothing more -->
+  <div class="center">
+    <span class="modalTitle">
+      • {{ orderData.worker.fullName }} •
+      <br />
+      <span class="titleChildren">| {{ orderData.worker.visa }} |</span>
+    </span>
+  </div>
+  <!-- end of the center div    -->
+  <!-- 1/25/2021 the [ngModel]="" was equal to the orderData.procedures[index] we change it to the local one because when we press cancel button the switches return to default if any problem happend we can restore it to the previues one "orderData.procedures[0 or any index]" -->
+  <nz-card class="card">
+    <div nz-row>
+      <nz-switch
+        (ngModelChange)="changeSwitch($event, 'musaned_contract', 0)"
+        [nzDisabled]="orderData.procedures[0].musaned_contract"
+        [nzCheckedChildren]="checkedTemplate"
+        [nzUnCheckedChildren]="unCheckedTemplate"
+        [ngModel]="allProceduresStatus[0].musaned_contract"
+      ></nz-switch>
+      <p class="switchLabel">Musaned Contract</p>
+    </div>
+
+    <div nz-row>
+      <nz-switch
+        (ngModelChange)="
+          changeSwitch($event, 'polo_contract', 1)
+        "
+        [nzDisabled]="orderData.procedures[1].polo_contract"
+        [nzCheckedChildren]="checkedTemplate"
+        [nzUnCheckedChildren]="unCheckedTemplate"
+        [ngModel]="allProceduresStatus[1].polo_contract"
+      ></nz-switch>
+      <p class="switchLabel">Polo Contract</p>
+    </div>
+    <div nz-row>
+      <nz-switch
+        (ngModelChange)="
+          changeSwitch($event, 'sending_contract', 2)
+        "
+        [nzDisabled]="orderData.procedures[2].sending_contract"
+        [nzCheckedChildren]="checkedTemplate"
+        [nzUnCheckedChildren]="unCheckedTemplate"
+       [ngModel]="allProceduresStatus[2].sending_contract"
+      ></nz-switch>
+      <p class="switchLabel">Contract Sent to Philippines</p>
+    </div>
+    <div nz-row>
+      <nz-switch
+        (ngModelChange)="
+          changeSwitch($event, 'contract_signed', 3)
+        "
+        [nzDisabled]="orderData.procedures[3].contract_signed"
+        [nzCheckedChildren]="checkedTemplate"
+        [nzUnCheckedChildren]="unCheckedTemplate"
+        [ngModel]="allProceduresStatus[3].contract_signed"
+      ></nz-switch>
+      <p class="switchLabel">Signed By Worker</p>
+    </div>
+    <div nz-row>
+      <nz-switch
+        (ngModelChange)="
+          changeSwitch($event,'school', 4)
+        "
+        [nzDisabled]="orderData.procedures[4].school"
+        [nzCheckedChildren]="checkedTemplate"
+        [nzUnCheckedChildren]="unCheckedTemplate"
+       [ngModel]="allProceduresStatus[4].school"
+      ></nz-switch>
+      <p class="switchLabel">School</p>
+    </div>
+    <div nz-row>
+      <nz-switch
+        (ngModelChange)="
+          changeSwitch($event, 'fingerPrint', 5)
+        "
+        [nzDisabled]="orderData.procedures[5].fingerPrint"
+        [nzCheckedChildren]="checkedTemplate"
+        [nzUnCheckedChildren]="unCheckedTemplate"
+       [ngModel]="allProceduresStatus[5].fingerPrint"
+      ></nz-switch>
+      <p class="switchLabel">Fingerprints</p>
+    </div>
+    <div nz-row>
+      <nz-switch
+        (ngModelChange)="changeSwitch($event, 'visa', 6)"
+        [nzDisabled]="orderData.procedures[6].visa"
+        [nzCheckedChildren]="checkedTemplate"
+        [nzUnCheckedChildren]="unCheckedTemplate"
+       [ngModel]="allProceduresStatus[6].visa"
+      ></nz-switch>
+      <p class="switchLabel">Visa</p>
+    </div>
+    <div nz-row>
+      <nz-switch
+        (ngModelChange)="
+          changeSwitch($event, 'travel_permit', 7)
+        "
+        [nzDisabled]="orderData.procedures[7].travel_permit"
+        [nzCheckedChildren]="checkedTemplate"
+        [nzUnCheckedChildren]="unCheckedTemplate"
+       [ngModel]="allProceduresStatus[7].travel_permit"
+      ></nz-switch>
+      <p class="switchLabel">Travel Permit</p>
+    </div>
+    <div nz-row>
+      <nz-switch
+        (ngModelChange)="
+          changeSwitch($event, 'ticket_book', 8)
+        "
+        [nzDisabled]="orderData.procedures[8].ticket_book"
+        [nzCheckedChildren]="checkedTemplate"
+        [nzUnCheckedChildren]="unCheckedTemplate"
+       [ngModel]="allProceduresStatus[8].ticket_book"
+      ></nz-switch>
+      <p class="switchLabel">Tickets</p>
+    </div>
+  </nz-card>
+  <div class="timeDiv">
+    <nz-timeline>
+      <nz-timeline-item>
+        Musaned Contract
+        |
+        <span class="dates">
+           {{allProceduresStatus[0]?.date[0]?.toLocaleDateString('EG', options)}}
+        </span>
+      </nz-timeline-item>
+      <nz-timeline-item>
+        Polo Contract
+        |
+        <span class="dates">
+           {{allProceduresStatus[1]?.date[0]?.toLocaleDateString('EG', options)}} 
+        </span>
+      </nz-timeline-item>
+      <nz-timeline-item>
+        Contract Sent to Philippines
+        |
+        <span class="dates">
+           {{allProceduresStatus[2]?.date[0]?.toLocaleDateString('EG', options)}} 
+        </span>
+      </nz-timeline-item>
+      <nz-timeline-item>
+        Signed By Worker
+        |
+        <span class="dates">
+           {{allProceduresStatus[3]?.date[0]?.toLocaleDateString('EG', options)}} 
+        </span>
+      </nz-timeline-item>
+      <nz-timeline-item>
+        School
+        |
+        <span  class='dates' *ngIf="allProceduresStatus[4].date.length===2" >
+           {{allProceduresStatus[4].date[0]?.toLocaleDateString('EG', options)}}
+           <span class='dates' style="color: red;">To</span>
+           {{allProceduresStatus[4].date[1]?.toLocaleDateString('EG', options)}}
+        </span>
+        <!-- <ng-template #school>
+          <span class='dates'>
+         {{orderData.procedures[4].date[0]?.toLocaleDateString('EG', options)}}
+      </span>
+     </ng-template> -->
+      </nz-timeline-item>
+      <nz-timeline-item>
+        Fingerprints
+        |
+        <span  class='dates' *ngIf="allProceduresStatus[5].date.length===2" >
+          {{allProceduresStatus[5].date[0]?.toLocaleDateString('EG', options)}}
+          <span class='dates' style="color: red;">To</span>
+          {{allProceduresStatus[5].date[1]?.toLocaleDateString('EG', options)}}
+       </span>
+      </nz-timeline-item>
+      <nz-timeline-item>
+        Visa
+        |
+        <span class="dates">
+           {{allProceduresStatus[6].date[0]?.toLocaleDateString('EG', options)}} 
+        </span>
+      </nz-timeline-item>
+      <nz-timeline-item>
+        Travel Permit
+        |
+        <span class="dates">
+           {{allProceduresStatus[7].date[0]?.toLocaleDateString('EG', options)}} 
+        </span>
+      </nz-timeline-item>
+      <nz-timeline-item>
+        Tickets
+        |
+        <span class="dates">
+           {{allProceduresStatus[8].date[0]?.toLocaleDateString('EG', optionsTicket)}}
+        </span>
+      </nz-timeline-item>
+    </nz-timeline>
+  </div>
+  
+
+<!-- This Modal for the RangePicker where we will set the appointments -->
+<div style="width: 35%;left: 10%; margin: 10px;">
+  <button style="left:15%;" nzBlock nzDanger nz-button nzType="primary" (click)="showModalDates()">
+    <span>Appointments</span>
+  </button>
+</div>
+
+<nz-modal
+  [(nzVisible)]="isVisibleDates"
+  (nzOnCancel)="handleCancelDates()"
+  [nzFooter]="datesModalFooter"
+>
+  <form nz-form [formGroup]="validateForm" (ngSubmit)="submitForm()">
+    <nz-form-item>
+      <nz-form-label [nzSm]="8" [nzXs]="24" nzRequired>School</nz-form-label>
+      <nz-form-control [nzSm]="16" [nzXs]="24">
+          <nz-range-picker
+            [nzDisabled]="
+              orderData.procedures[4].date.length === 0 ? false : true
+            "
+            (ngModelChange)="onDateChange($event, 'school')"
+            formControlName="School"
+          ></nz-range-picker>
+      </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+      <nz-form-label [nzSm]="8" [nzXs]="24" nzRequired
+        >Fingerprints</nz-form-label>
+      <nz-form-control [nzSm]="16" [nzXs]="24">
+
+          <nz-range-picker
+            [nzDisabled]="
+              orderData.procedures[5].date.length === 0  ? false : true
+            "
+            (ngModelChange)="onDateChange($event, 'fingerPrints')"
+            formControlName="FingerPrints"
+          ></nz-range-picker>
+      </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+      <nz-form-label [nzSm]="8" [nzXs]="24" nzRequired>Tickets</nz-form-label>
+      <nz-form-control [nzSm]="16" [nzXs]="24">
+          <nz-date-picker
+          (ngModelChange)="onDateChange($event, 'tickets')"
+          (nzOnOk)="onDateOk($event,'tickets')"
+           nzShowTime
+            [nzDisabled]="
+              orderData.procedures[8].date.length === 0  ? false : true
+            "
+            formControlName="tickets"
+          ></nz-date-picker>
+      </nz-form-control>
+    </nz-form-item>
+  </form>
+
+  <!-- End of RangePicker -->
+  <ng-template #datesModalFooter>
+    <button nz-button nzType="default" (click)="handleCancelDates()">
+      Cancel
+    </button>
+    <button nz-button nzType="primary" (click)="submitForm()">Submit</button>
+  </ng-template>
+</nz-modal>
+
+  <ng-template #switchModalFooter>
+    <button nz-button nzType="default" (click)="handleCancel()">Cancel</button>
+    <button
+      [nzLoading]="modalOkLoading"
+      nz-button
+      nzType="primary"
+      (click)="handleOk()"
+    >
+      Confirm
+    </button>
+  </ng-template>
+</nz-modal>
+<ng-template #checkedTemplate><i class="fas fa-check"></i></ng-template>
+<ng-template #unCheckedTemplate><i class="fas fa-times"></i></ng-template>

@@ -1,0 +1,110 @@
+/* [nz-form]:not(.ant-form-inline):not(.ant-form-vertical) {
+    max-width: 600px;
+  } */
+
+
+
+  ::ng-deep .ant-form-item-label.client>label{
+    font-size: medium;
+    font-family:Almarai,Roboto Mono;
+    color: #3fc1c9;
+  }
+
+  ::ng-deep .ant-form-item-label.houseKeeper>label{
+    font-size: medium;
+    font-family:Almarai,Roboto Mono;
+    color: #fc5185;
+  }
+
+ 
+
+  ::ng-deep .ant-modal-title{
+    font-family:Tajawal, 'Roboto Mono';
+      color: #474544;
+      font-size: 28px;
+      font-weight: 800;
+      letter-spacing: .5px;
+      text-align: center;
+      text-transform: uppercase;
+      margin-bottom: 35px;
+  }
+
+  .inputStyle{
+    font-family:Tajawal,'Roboto Mono';
+    font-size: larger;
+    direction: ltr;
+  }
+
+  .formHeader{
+    font-family: 'Roboto Mono',Harmattan;
+    color: #364f6b;
+    font-size: 23px;
+    font-weight: bolder;
+    letter-spacing: 0.5px;
+    text-align: center;
+    text-transform: uppercase;
+    margin-bottom: 35px;
+  
+  
+  }
+
+  .ant-divider-horizontal.ant-divider-with-text{
+    font-family: 'Roboto Mono',Tajawal;
+    color: #364f6b;
+    font-size: 23px;
+    font-weight: bolder;
+    letter-spacing: 0.5px;
+    text-align: center;
+    text-transform: uppercase;
+    margin-bottom: 35px;
+  }
+
+
+
+  .phone-select {
+    width: 70px;
+  }
+
+  .register-are {
+    margin-bottom: 8px;
+  }
+
+
+  ::ng-deep .vertical-center-modal .ant-modal {
+    top: 10px;
+  }
+
+  .btnStyle{
+    margin:5px;
+    border-color:#5eaaa8;
+}
+.btnText{
+  text-align:center;
+  font-family:'Almarai';
+  font-size:17px;
+}
+
+/* To Hide the input of typer number Arrow (Spinner) */
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+/* end */
+
+::ng-deep  .ant-form-item-explain.ant-form-item-explain-error{
+  font-family:'Roboto Mono','Almarai';
+  text-align: right;
+}
+
+::ng-deep .ant-select-item-option-content{
+  font-family:'Roboto Mono',Almarai;
+  font-size: medium;
+  font-weight: bolder;
+}
+
+::ng-deep .ant-select{
+  font-family:'Roboto Mono',Almarai;
+
+}

@@ -1,0 +1,471 @@
+<button  nzBlock nz-button [nzType]="'text'" nzShape="round" nzSize="large" (click)="showModal()" class="btnStyle"><span class="btnText">إنشاء طلب</span></button>
+    <nz-modal nzMaskClosable = 'false' nzoverFlow="true" nzWidth="900px" nzWrapClassName="vertical-center-modal" (nzOnCancel)="handleCancel()" [(nzVisible)]="isVisible" nzTitle="• نموذج إدخال البيانات •">
+       <!-- نموذج بيانات الكفيل -->
+       <div class="container">
+      <form  nz-form dir="rtl" [formGroup]="validateFormClient" (ngSubmit)="submitForm()" >
+        <nz-divider  nzText="بيانات الكفيل"></nz-divider>
+        
+        <div class="row">
+          <div class="col-8">
+            <nz-form-item >
+              <nz-form-label nzRequired class="client"  >رقم الهوية/الإقامة</nz-form-label>
+              <nz-form-control nzHasFeedback [nzErrorTip]="combineTpl">
+                <input type="numeric" minlength="10" maxlength="10" required class="inputStyle" nz-input formControlName="id" />
+                <ng-template #combineTpl let-control>
+                  <ng-container *ngIf="control.hasError('maxlength')">يجب إدخال 10 أرقام</ng-container>
+                  <ng-container *ngIf="control.hasError('minlength')">يجب إدخال 10 أرقام</ng-container>
+                  <ng-container *ngIf="control.hasError('required')">الرجاء إدخال البيانات</ng-container>
+                  <ng-container *ngIf="control.hasError('duplicated')">
+                   رقم الهوية مستخدم
+                 </ng-container>
+                </ng-template>
+              </nz-form-control>
+            </nz-form-item>  
+    </div>  
+        </div>
+        <div class="row">
+          <div class="col-8">
+  <nz-form-item>
+    <nz-form-label nzRequired  class="client" >الإسم الرباعي</nz-form-label>
+    <nz-form-control  nzErrorTip="الرجاء إدخال البيانات المطلوبة">
+      <input required [ngModel]="formValues.client.fullName"  class="inputStyle" style="direction: rtl;" nz-input formControlName="fullName"  />
+    </nz-form-control>
+  </nz-form-item>
+    </div>  
+        </div>
+
+        <div class="row">
+          <div class="col">
+            <nz-form-item>
+              <nz-form-label nzRequired  class="client" >الجنسية</nz-form-label>
+              <nz-form-control  nzHasFeedback nzErrorTip="الرجاء إدخال البيانات المطلوبة">
+                <input [ngModel]="formValues.client.nationality" style="direction: rtl;" [ngModel]="'سعودي'" class="inputStyle" nz-input formControlName="nationality"  required />
+              </nz-form-control>
+            </nz-form-item>
+                    </div>
+          <div class="col-4">
+            <nz-form-item>
+              <nz-form-label nzRequired class="client">عدد أفراد الأسرة</nz-form-label>
+              <nz-form-control nzHasFeedback nzErrorTip=" إدخال البيانات المطلوبة">
+                <input [ngModel]="formValues.client.familyMembers" class="inputStyle" nz-input formControlName="familyMembers" type="number" required />
+              </nz-form-control>
+            </nz-form-item>
+          </div>
+          <div class="col-4">
+            <nz-form-item>
+              <nz-form-label nzRequired class="client">الحالة الإجتماعية</nz-form-label>
+              <nz-form-control  nzErrorTip=" إدخال البيانات المطلوبة">
+                <nz-select [ngModel]="formValues.client.status" formControlName="status">
+                  <nz-option nzValue="متزوج" nzLabel="متزوج"></nz-option>
+                  <nz-option nzValue="أعزب" nzLabel="أعزب"></nz-option> 
+                  <nz-option nzValue="متزوجة" nzLabel="متزوجة"></nz-option>
+                  <nz-option nzValue="عزباء" nzLabel="عزباء"></nz-option>       
+
+                </nz-select>
+              </nz-form-control>
+            </nz-form-item>
+          </div>
+        </div>
+  <nz-divider style="color:#84a9ac" nzDashed nzOrientation="left" nzText="العنوان الوطني"></nz-divider>
+  <form nz-form dir="rtl" [formGroup]="validateFormClientAddress" (ngSubmit)="submitForm()">
+    <div class="row">
+      <div class="col-md-4">
+  <nz-form-item>
+    <nz-form-label nzRequired class="client" >الشارع</nz-form-label>
+    <nz-form-control  nzHasFeedback nzErrorTip="الرجاء إدخال البيانات المطلوبة">
+      <input [ngModel]="formValues.client.address.street" style="direction: rtl;" class="inputStyle" nz-input formControlName="street"  required />
+    </nz-form-control>
+  </nz-form-item>
+      </div>
+      <div class="col-md-4">
+  <nz-form-item>
+    <nz-form-label nzRequired class="client" >الحي</nz-form-label>
+    <nz-form-control  nzHasFeedback nzErrorTip="الرجاء إدخال البيانات المطلوبة">
+      <input [ngModel]="formValues.client.address.neighborhood" style="direction: rtl;" class="inputStyle" nz-input formControlName="neighborhood"  required />
+    </nz-form-control>
+  </nz-form-item>
+</div>
+<div class="col-md-4">
+      <nz-form-item>
+        <nz-form-label nzFor="province" nzRequired class="client" >المنطقة</nz-form-label>
+        <nz-form-control nzErrorTip="الرجاء إدخال البيانات المطلوبة">
+          <nz-select
+          [(ngModel)]="selectedProvince"
+          [ngModel]="formValues.client.address.province"
+
+          class="inputStyle"
+            id="province"
+            formControlName="province"
+            (ngModelChange)="provinceChange($event)">
+            <nz-option *ngFor="let p of provinceData" [nzValue]="p" [nzLabel]="p"></nz-option>
+          </nz-select>
+        </nz-form-control>
+      </nz-form-item>
+      </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+  <nz-form-item>
+    <nz-form-label nzRequired nzFor="city" nzRequired class="client" >المدينة</nz-form-label>
+    <nz-form-control nzErrorTip="الرجاء إدخال البيانات المطلوبة">
+      <nz-select
+      class="inputStyle"
+        id="city"
+        formControlName="city"
+        [(ngModel)]="selectedCity"
+        [ngModel]="formValues.client.address.city"
+
+        
+      >
+        <nz-option *ngFor="let c of cityData[selectedProvince]" [nzValue]="c" [nzLabel]="c"></nz-option>
+      </nz-select>
+    </nz-form-control>
+  </nz-form-item>
+        </div>
+        <div class="col-md-6">
+  <nz-form-item>
+    <nz-form-label nzRequired class="client" >الرقم البريدي</nz-form-label>
+    <nz-form-control nzHasFeedback nzErrorTip="الرجاء إدخال البيانات المطلوبة">
+      <input [ngModel]="formValues.client.address.postal" class="inputStyle" nz-input formControlName="postal"  required />
+    </nz-form-control>
+  </nz-form-item>
+        </div>
+      </div>
+</form>
+  <nz-divider style="color:#84a9ac;width: 50%;" nzDashed ></nz-divider>
+  <div class="row">
+    <div class="col-md-6">
+  <nz-form-item>
+    <nz-form-label nzRequired  class="client" >رقم الجوال</nz-form-label>
+    <nz-form-control nzHasFeedback [nzErrorTip]="phoneCheck">
+      <input [ngModel]="formValues.client.phone" class="inputStyle" type="numeric" minlength="10" maxlength="10" nz-input formControlName="phone"   required />
+      <ng-template #phoneCheck let-control>
+        <ng-container *ngIf="control.hasError('maxlength')">يجب إدخال 10 أرقام</ng-container>
+        <ng-container *ngIf="control.hasError('minlength')">يجب إدخال 10 أرقام</ng-container>
+        <ng-container *ngIf="control.hasError('required')">الرجاء إدخال البيانات</ng-container>
+      </ng-template>
+    </nz-form-control>
+  </nz-form-item>
+  </div>
+  <div class="col-md-6">
+  <nz-form-item>
+    <nz-form-label nzRequired class="client" >رقم الجوال (2)</nz-form-label>
+    <nz-form-control nzHasFeedback [nzErrorTip]="phoneCheck2">
+      <input [ngModel]="formValues.client.phone2" class="inputStyle" type="numeric" minlength="10" maxlength="10" nz-input formControlName="phone2" required />
+      <ng-template #phoneCheck2 let-control>
+        <ng-container *ngIf="control.hasError('maxlength')">يجب إدخال 10 أرقام</ng-container>
+        <ng-container *ngIf="control.hasError('minlength')">يجب إدخال 10 أرقام</ng-container>
+        <ng-container *ngIf="control.hasError('required')">الرجاء إدخال البيانات</ng-container>
+      </ng-template>
+    </nz-form-control>
+  </nz-form-item>
+  </div>
+  </div>
+  <div class="row">
+    <div class="col-md-8">
+  <nz-form-item>
+    <nz-form-label nzRequired class="client" nzFor="email" >الإيميل</nz-form-label>
+    <nz-form-control nzHasFeedback nzErrorTip="الرجاء إدخال البيانات المطلوبة">
+      <input [ngModel]="formValues.client.email" class="inputStyle" nz-input formControlName="email"  required />
+    </nz-form-control>
+  </nz-form-item>
+  </div>
+</div>
+</form> 
+
+<!-- // بيانات العاملة المنزلية -->
+
+<form nz-form dir="rtl" [formGroup]="validateFormWorker" (ngSubmit)="submitForm()">
+  <nz-divider nzDashed nzText="بيانات العاملة"></nz-divider>
+  <div class="row">
+    <div class="col-8">
+      <nz-form-item>
+        <nz-form-label nzRequired class="houseKeeper" >الإسم الرباعي</nz-form-label>
+        <nz-form-control  nzErrorTip="الرجاء إدخال البيانات المطلوبة">
+        <input  class="inputStyle"  nz-input formControlName="fullName"  />
+        </nz-form-control>
+        </nz-form-item>
+    </div>
+    
+  </div>
+<form nz-form dir="rtl" [formGroup]="validateFormWorkerPassport" (ngSubmit)="submitForm()">
+  <div class="row">
+    <div class="col">
+      <nz-form-item>
+        <nz-form-label nzRequired class="houseKeeper" >رقم الجواز</nz-form-label>
+        <nz-form-control nzHasFeedback nzErrorTip="الرجاء إدخال البيانات المطلوبة">
+        <input class="inputStyle" nz-input formControlName="passportNum"  required />
+        </nz-form-control>
+        </nz-form-item>
+    </div>
+    <div class="col">
+      <nz-form-item>
+        <nz-form-label class="houseKeeper" nzRequired>تاريخ إصدار الجواز</nz-form-label>
+        <nz-form-control nzErrorTip = 'الرجاء إدخال التاريخ'>
+          <nz-date-picker formControlName="dateOfIssue"></nz-date-picker>
+        </nz-form-control>
+      </nz-form-item>
+    </div>
+    <div class="col">
+      <nz-form-item>
+        <nz-form-label nzRequired class="houseKeeper" >مكان إصدار الجواز</nz-form-label>
+        <nz-form-control nzHasFeedback nzErrorTip="الرجاء إدخال البيانات المطلوبة">
+        <input class="inputStyle" nz-input formControlName="placeOfIssue"  required />
+        </nz-form-control>
+        </nz-form-item>
+    </div>
+  </div>
+</form>
+<div class="row">
+  <div class="col">
+    <nz-form-item>
+      <nz-form-label nzRequired class="houseKeeper" >رقم التأشيرة</nz-form-label>
+      <nz-form-control nzHasFeedback [nzErrorTip]="combineTpl">
+        <input minlength="10" maxlength="10" class="inputStyle" nz-input formControlName="visa"   required />
+        <ng-template #combineTpl let-control>
+          <ng-container *ngIf="control.hasError('maxlength')">يجب إدخال 10 أرقام</ng-container>
+          <ng-container *ngIf="control.hasError('minlength')">يجب إدخال 10 أرقام</ng-container>
+          <ng-container *ngIf="control.hasError('required')">الرجاء إدخال البيانات</ng-container>
+        </ng-template>
+      </nz-form-control>
+    </nz-form-item>
+  </div>
+  <div class="col">
+    <nz-form-item>
+      <nz-form-label nzHasFeedback nzRequired class="houseKeeper" >الجنسية</nz-form-label>
+      <nz-form-control dir="ltr" nzErrorTip="الرجاء إدخال البيانات المطلوبة">
+        <nz-select
+        formControlName="nationality">
+        <nz-option nzValue="Philippines" nzLabel="Philippines"></nz-option>
+          <nz-option nzValue="Bangladesh" nzLabel="Bangladesh"></nz-option>
+          <nz-option nzValue="Uganda" nzLabel="Uganda"></nz-option>
+          <nz-option nzValue="Kenya" nzLabel="Kenya"></nz-option>
+    
+        </nz-select>
+      </nz-form-control>
+    </nz-form-item>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col">
+    <nz-form-item>
+      <nz-form-label nzRequired class="houseKeeper" >العمر</nz-form-label>
+      <nz-form-control nzHasFeedback nzErrorTip="الرجاء إدخال البيانات المطلوبة">
+      <input class="inputStyle" nz-input formControlName="age" type="number"  required />
+      </nz-form-control>
+      </nz-form-item>
+  </div>
+  <div class="col">
+    <nz-form-item>
+      <nz-form-label nzRequired  class="houseKeeper" >الجنس</nz-form-label>
+      <nz-form-control dir="ltr" nzHasFeedback nzErrorTip="الرجاء إدخال البيانات المطلوبة">
+        <nz-select
+        formControlName="gender"
+        >
+          <nz-option style="direction: ltr;" nzValue="male" nzLabel="Male"></nz-option>
+          <nz-option nzValue="female" nzLabel="Female"></nz-option>
+        
+    
+        </nz-select>
+      </nz-form-control>
+      </nz-form-item>
+  </div>
+  <div class="col">
+    <nz-form-item>
+      <nz-form-label nzRequired class="houseKeeper">الحالة الإجتماعية</nz-form-label>
+      <nz-form-control  nzErrorTip=" إدخال البيانات المطلوبة">
+        <nz-select formControlName="status">
+          <nz-option nzValue="single" nzLabel="Single"></nz-option>
+          <nz-option nzValue="married" nzLabel="Married"></nz-option>      
+
+        </nz-select>
+      </nz-form-control>
+    </nz-form-item>
+  </div>
+</div>
+<!-- <nz-form-item>
+<nz-form-label nzRequired [nzSm]="6" [nzXs]="24" class="houseKeeper" >الجنسية</nz-form-label>
+<nz-form-control nzHasFeedback nzErrorTip="الرجاء إدخال البيانات المطلوبة">
+<input class="inputStyle" nz-input formControlName="nationality"  required />
+</nz-form-control>
+</nz-form-item> -->
+
+<div class="row">
+  
+  <div class="col-4">
+    <nz-form-item>
+      <nz-form-label nzRequired class="houseKeeper" >المهنة</nz-form-label>
+      <nz-form-control nzHasFeedback nzErrorTip="الرجاء إدخال البيانات المطلوبة">
+      <input class="inputStyle" style="direction: rtl;" nz-input formControlName="occupation"  required />
+      </nz-form-control>
+      </nz-form-item>
+  </div>
+  <div class="col-6">
+    <nz-form-item>
+      <nz-form-label nzRequired class="houseKeeper" >رقم الجوال</nz-form-label>
+      <nz-form-control nzHasFeedback nzErrorTip="الرجاء إدخال البيانات المطلوبة">
+      <input class="inputStyle" nz-input formControlName="phone"   required />
+      </nz-form-control>
+      </nz-form-item>
+  </div>
+</div>
+  <div class="row">
+    <div class="col">
+      <nz-form-item>
+        <nz-form-label nzRequired class="houseKeeper" >المنطقة</nz-form-label>
+        <nz-form-control nzHasFeedback nzErrorTip="الرجاء إدخال البيانات المطلوبة">
+        <input class="inputStyle" nz-input formControlName="province"  required />
+        </nz-form-control>
+        </nz-form-item>
+    </div>
+    <div class="col">
+      <nz-form-item>
+        <nz-form-label nzRequired class="houseKeeper" >المدينة</nz-form-label>
+        <nz-form-control nzHasFeedback nzErrorTip="الرجاء إدخال البيانات المطلوبة">
+        <input class="inputStyle" nz-input formControlName="city"  required />
+        </nz-form-control>
+        </nz-form-item>
+    </div>
+    <div class="col">
+      <nz-form-item>
+        <nz-form-label class="houseKeeper" >رقم الـ(CV)</nz-form-label>
+        <nz-form-control nzHasFeedback nzErrorTip="الرجاء إدخال البيانات المطلوبة">
+        <input class="inputStyle" nz-input formControlName="cv"  required />
+        </nz-form-control>
+        </nz-form-item>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-4">
+        <nz-form-item>
+        <nz-form-label nzRequired class="houseKeeper">الديانة</nz-form-label>
+        <nz-form-control  nzErrorTip=" إدخال البيانات المطلوبة">
+          <nz-select formControlName="religion">
+            <nz-option nzValue="مسلم" nzLabel="مسلم"></nz-option>
+            <nz-option nzValue="غير مسلم" nzLabel="غير مسلم"></nz-option>       
+  
+          </nz-select>
+        </nz-form-control>
+      </nz-form-item>
+    </div>
+    <div class="col-4">
+      <nz-form-item>
+        <nz-form-label nzRequired class="houseKeeper">المواصفات</nz-form-label>
+        <nz-form-control  nzErrorTip=" إدخال البيانات المطلوبة">
+          <nz-select formControlName="specifications">
+            <nz-option nzValue="معينة" nzLabel="معينة"></nz-option> 
+            <nz-option nzValue="حسب المواصفات" nzLabel="حسب المواصفات"></nz-option> 
+  
+          </nz-select>
+        </nz-form-control>
+      </nz-form-item>
+    </div>
+  </div>
+<nz-divider style="color:#84a9ac" nzDashed nzOrientation="left" nzText="بيانات الأقارب"></nz-divider>
+<form nz-form dir="rtl" [formGroup]="validateFormWorkerRelatives" (ngSubmit)="submitForm()">
+<div class="row">
+  <div class="col-8">
+    <nz-form-item>
+      <nz-form-label nzRequired class="houseKeeper" >الإسم</nz-form-label>
+      <nz-form-control  nzErrorTip="الرجاء إدخال البيانات المطلوبة">
+      <input  class="inputStyle"  nz-input formControlName="fullName"  />
+      </nz-form-control>
+      </nz-form-item>
+  </div>
+</div>
+<div class="row">
+  <div class="col">
+    <nz-form-item>
+      <nz-form-label nzRequired class="houseKeeper" >المنطقة</nz-form-label>
+      <nz-form-control  nzErrorTip="الرجاء إدخال البيانات المطلوبة">
+      <input  class="inputStyle"  nz-input formControlName="province"  />
+      </nz-form-control>
+      </nz-form-item>
+  </div>
+  <div class="col">
+    <nz-form-item>
+      <nz-form-label nzRequired class="houseKeeper" >المدينة</nz-form-label>
+      <nz-form-control  nzErrorTip="الرجاء إدخال البيانات المطلوبة">
+      <input  class="inputStyle"  nz-input formControlName="city"  />
+      </nz-form-control>
+      </nz-form-item>
+  </div>
+  <div class="col">
+    <nz-form-item>
+      <nz-form-label nzRequired class="houseKeeper" >رقم الجوال</nz-form-label>
+      <nz-form-control  nzErrorTip="الرجاء إدخال البيانات المطلوبة">
+      <input  class="inputStyle"  nz-input formControlName="phone"  />
+      </nz-form-control>
+      </nz-form-item>
+  </div>
+</div>
+</form>
+
+</form> 
+<form nz-form dir="rtl" [formGroup]="validateFormContract" (ngSubmit)="submitForm()">
+
+  <nz-divider nzDashed nzText="بيانات العقد"></nz-divider>
+  <div class="row">
+    <div class="col">
+      <nz-form-item>
+        <nz-form-label nzRequired class="client" >رقم العقد</nz-form-label>
+        <nz-form-control nzHasFeedback nzErrorTip="الرجاء إدخال البيانات المطلوبة">
+          <input class="inputStyle" nz-input formControlName="contractNumber"  required />
+        </nz-form-control>
+      </nz-form-item>
+    </div>
+    <div class="col">
+      <nz-form-item>
+        <nz-form-label nzRequired class="client" >رقم التفويض</nz-form-label>
+        <nz-form-control nzHasFeedback nzErrorTip="الرجاء إدخال البيانات المطلوبة">
+          <input class="inputStyle" nz-input formControlName="authorizationNumber"  required />
+        </nz-form-control>
+      </nz-form-item>
+    </div>
+    <div class="col">
+      <nz-form-item>
+        <nz-form-label class="client" nzRequired>تاريخ التفويض</nz-form-label>
+        <nz-form-control nzErrorTip = 'الرجاء إدخال التاريخ'>
+          <nz-date-picker formControlName="authorizationDate"></nz-date-picker>
+        </nz-form-control>
+      </nz-form-item>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <nz-form-item>
+        <nz-form-label nzRequired class="client" >نوع العقد</nz-form-label>
+        <nz-form-control nzErrorTip="الرجاء إدخال البيانات المطلوبة">
+          <nz-select
+          formControlName="contractType">
+          <nz-option nzValue="مساند" nzLabel="مساند"></nz-option>
+            <nz-option nzValue="إلكتروني" nzLabel="إلكتروني"></nz-option>
+          </nz-select>
+        </nz-form-control>
+      </nz-form-item>
+    </div>
+    <div class="col">
+      <nz-form-item>
+        <nz-form-label nzRequired class="client" >قيمة العقد</nz-form-label>
+        <nz-form-control nzHasFeedback nzErrorTip="الرجاء إدخال البيانات المطلوبة">
+        <input class="inputStyle" style="direction: ltr;" nz-input formControlName="contractValue" currencyMask [options]='currencyOptions'  required />
+        </nz-form-control>
+        </nz-form-item>
+    </div>
+    <div class="col">
+      <nz-form-item>
+        <nz-form-label nzRequired class="client" >رقم الملف</nz-form-label>
+        <nz-form-control nzHasFeedback nzErrorTip="الرجاء إدخال البيانات المطلوبة">
+          <input class="inputStyle" nz-input formControlName="fileNumber"  required placeholder="الخاص بالمكتب" />
+        </nz-form-control>
+      </nz-form-item>
+    </div>
+  </div>
+</form>
+</div>
+<div *nzModalFooter>
+  <button nzDanger nz-button nzType="default" (click)="handleCancel()">Cancel</button>
+  <button nz-button nzType="primary" (click)="submitForm()">Submit</button>
+</div>
+    </nz-modal>

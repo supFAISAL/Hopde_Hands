@@ -1,0 +1,192 @@
+
+<table>
+    <thead><tr><td>
+      <div class="header-space">&nbsp;</div>
+    </td></tr></thead>
+    <tbody><tr><td>
+      <div class="content">
+        
+<div class="worker" *ngFor="let invoice of invoiceIds">
+    <p style="margin-top:0pt; margin-bottom:8pt; text-align:center; line-height:108%; font-size:17pt;"><em><span dir="rtl" style="font-family:Dubai; font-weight:bold; color:#5b9bd5;">0012</span></em></p>
+  <p style="margin-top:0pt; margin-bottom:8pt; text-align:center; line-height:108%; font-size:17pt;"><em><span style="font-family:Dubai; color:#5b9bd5;">&nbsp;</span></em></p>
+  <p style="margin-top:0pt; margin-bottom:8pt; text-align:center; line-height:108%; font-size:17pt;"><em><span style="font-family:Dubai; color:#5b9bd5;">&nbsp;</span></em></p>
+  <p dir="rtl" style="margin-top:0pt; margin-bottom:8pt; line-height:108%; font-size:14pt;"><strong><span style="font-family:Dubai;">البيانات الشخصية</span></strong></p>
+  <table cellpadding="0" cellspacing="0" style="border:0.75pt solid #bfbfbf; border-collapse:collapse; margin-left: auto;">
+  <tbody>
+    <tr style="height:25.2pt;">
+        <td style="width:366.95pt; border-right:0.75pt solid #bfbfbf; border-bottom:0.75pt solid #bfbfbf; padding-right:5.03pt; padding-left:5.03pt; vertical-align:middle;">
+            <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; font-size:12pt;"><span style="font-family:Dubai;"> {{invoice?.client.fullName}} </span></p>
+        </td>
+        <td style="width:98.3pt; border-left:0.75pt solid #bfbfbf; border-bottom:0.75pt solid #bfbfbf; padding-right:5.03pt; padding-left:5.03pt; vertical-align:middle;">
+            <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; font-size:12pt;"><span style="font-family:Dubai;">الاسم</span></p>
+        </td>
+    </tr>
+    <tr style="height:25.2pt;">
+        <td style="width:366.95pt; border-top:0.75pt solid #bfbfbf; border-right:0.75pt solid #bfbfbf; border-bottom:0.75pt solid #bfbfbf; padding-right:5.03pt; padding-left:5.03pt; vertical-align:middle; background-color:#f2f2f2;">
+            <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; font-size:12pt;"><span style="font-family:Dubai;">{{invoice?.client.id}}</span></p>
+        </td>
+        <td style="width:98.3pt; border-top:0.75pt solid #bfbfbf; border-left:0.75pt solid #bfbfbf; border-bottom:0.75pt solid #bfbfbf; padding-right:5.03pt; padding-left:5.03pt; vertical-align:middle; background-color:#f2f2f2;">
+            <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; font-size:12pt;"><span style="font-family:Dubai;">رقم الهوية / الإقامة</span></p>
+        </td>
+    </tr>
+    <tr style="height:25.2pt;">
+        <td style="width:366.95pt; border-top:0.75pt solid #bfbfbf; border-right:0.75pt solid #bfbfbf; border-bottom:0.75pt solid #bfbfbf; padding-right:5.03pt; padding-left:5.03pt; vertical-align:middle;">
+            <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; font-size:12pt;"><span style="font-family:Dubai;">{{invoice?.client.nationality}}</span></p>
+        </td>
+        <td style="width:98.3pt; border-top:0.75pt solid #bfbfbf; border-left:0.75pt solid #bfbfbf; border-bottom:0.75pt solid #bfbfbf; padding-right:5.03pt; padding-left:5.03pt; vertical-align:middle;">
+            <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; font-size:12pt;"><span style="font-family:Dubai;">الجنسية</span></p>
+        </td>
+    </tr>
+    <tr style="height:25.2pt;">
+        <td style="width:366.95pt; border-top:0.75pt solid #bfbfbf; border-right:0.75pt solid #bfbfbf; padding-right:5.03pt; padding-left:5.03pt; vertical-align:middle; background-color:#f2f2f2;">
+            <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; font-size:12pt;"><span style="font-family:Dubai;">5</span></p>
+        </td>
+        <td style="width:98.3pt; border-top:0.75pt solid #bfbfbf; border-left:0.75pt solid #bfbfbf; padding-right:5.03pt; padding-left:5.03pt; vertical-align:middle; background-color:#f2f2f2;">
+            <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; font-size:12pt;"><span style="font-family:Dubai;">{{invoice?.client.familyMembers}}</span></p>
+        </td>
+    </tr>
+  </tbody>
+  </table>
+  <p style="margin-top:0pt; margin-bottom:8pt; line-height:108%; font-size:12pt;"><span style="font-family:Dubai;">&nbsp;</span></p>
+  <p dir="rtl" style="margin-top:0pt; margin-bottom:8pt; line-height:108%; font-size:14pt;"><strong><span style="font-family:Dubai;">العنوان الوطني</span></strong></p>
+  <table cellpadding="0" cellspacing="0" style="border:0.75pt solid #bfbfbf; border-collapse:collapse; margin-left: auto;">
+  <tbody>
+    <tr style="height:25.2pt;">
+        <td style="width:366.95pt; border-right:0.75pt solid #bfbfbf; border-bottom:0.75pt solid #bfbfbf; padding-right:5.03pt; padding-left:5.03pt; vertical-align:middle;">
+            <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; font-size:12pt;"><span style="font-family:Dubai;">{{invoice?.client.address}}&nbsp;</span><span style="font-family:Dubai;">المعلمي،</span><span style="font-family:Dubai;">&nbsp;الربوة</span></p>
+        </td>
+        <td style="width:98.3pt; border-left:0.75pt solid #bfbfbf; border-bottom:0.75pt solid #bfbfbf; padding-right:5.03pt; padding-left:5.03pt; vertical-align:middle;">
+            <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; font-size:12pt;"><span style="font-family:Dubai;">العنوان</span></p>
+        </td>
+    </tr>
+  </tbody>
+  </table>
+  <p style="margin-top:0pt; margin-bottom:8pt; line-height:108%; font-size:12pt;"><span style="font-family:Dubai;">&nbsp;</span></p>
+  <p dir="rtl" style="margin-top:0pt; margin-bottom:8pt; line-height:108%; font-size:14pt;"><strong><span style="font-family:Dubai;">معلومات التواصل</span></strong></p>
+  <table cellpadding="0" cellspacing="0" style="border:0.75pt solid #bfbfbf; border-collapse:collapse; margin-left: auto;">
+  <tbody>
+    <tr style="height:25.2pt;">
+        <td style="width:366.95pt; border-right:0.75pt solid #bfbfbf; border-bottom:0.75pt solid #bfbfbf; padding-right:5.03pt; padding-left:5.03pt; vertical-align:middle;">
+            <p style="margin-top:0pt; margin-bottom:0pt; font-size:12pt;"><span style="font-family:Dubai;"> {{invoice?.client.phone}} </span></p>
+        </td>
+        <td style="width:98.3pt; border-left:0.75pt solid #bfbfbf; border-bottom:0.75pt solid #bfbfbf; padding-right:5.03pt; padding-left:5.03pt; vertical-align:middle;">
+            <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; font-size:12pt;"><span style="font-family:Dubai;">رقم الجوال</span></p>
+        </td>
+    </tr>
+    <tr style="height:25.2pt;">
+        <td style="width:366.95pt; border-top:0.75pt solid #bfbfbf; border-right:0.75pt solid #bfbfbf; border-bottom:0.75pt solid #bfbfbf; padding-right:5.03pt; padding-left:5.03pt; vertical-align:middle; background-color:#f2f2f2;">
+            <p style="margin-top:0pt; margin-bottom:0pt; font-size:12pt;"><span style="font-family:Dubai;">{{invoice?.client.phone2}}</span></p>
+        </td>
+        <td style="width:98.3pt; border-top:0.75pt solid #bfbfbf; border-left:0.75pt solid #bfbfbf; border-bottom:0.75pt solid #bfbfbf; padding-right:5.03pt; padding-left:5.03pt; vertical-align:middle; background-color:#f2f2f2;">
+            <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; font-size:12pt;"><span style="font-family:Dubai;">رقم الجوال (2)</span></p>
+        </td>
+    </tr>
+    <tr style="height:25.2pt;">
+        <td style="width:366.95pt; border-top:0.75pt solid #bfbfbf; border-right:0.75pt solid #bfbfbf; padding-right:5.03pt; padding-left:5.03pt; vertical-align:middle;">
+            <p style="margin-top:0pt; margin-bottom:0pt; font-size:12pt;"><span style="font-family:Dubai;">Ahdal.fa@gmail.com</span></p>
+        </td>
+        <td style="width:98.3pt; border-top:0.75pt solid #bfbfbf; border-left:0.75pt solid #bfbfbf; padding-right:5.03pt; padding-left:5.03pt; vertical-align:middle;">
+            <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; font-size:12pt;"><span style="font-family:Dubai;">{{invoice?.client.email}}</span></p>
+        </td>
+    </tr>
+  </tbody>
+  </table>
+  <p style="margin-top:0pt; margin-bottom:8pt; line-height:108%; font-size:12pt;"><span style="font-family:Dubai;">&nbsp;</span></p>
+  <p style="margin-top:0pt; margin-bottom:8pt; line-height:108%; font-size:12pt;"><span style="font-family:Dubai;">&nbsp;</span></p>
+<div class='worker'>
+  <p style="margin-top:0pt; margin-bottom:8pt; text-align:center; line-height:108%; font-size:17pt;"><em><span style="font-family:Dubai; color:#5b9bd5;">&nbsp;</span></em></p>
+<p style="margin-top:0pt; margin-bottom:8pt; text-align:center; line-height:108%; font-size:17pt;"><em><span style="font-family:Dubai; color:#5b9bd5;">&nbsp;</span></em></p>
+<p dir="rtl" style="margin-top:0pt; margin-bottom:8pt; line-height:108%; font-size:14pt;"><strong><span style="font-family:Dubai;">البيانات الشخصية</span></strong></p>
+<table cellpadding="0" cellspacing="0" style="border:0.75pt solid #bfbfbf; border-collapse:collapse; margin-left: auto;">
+    <tbody>
+        <tr style="height:25.2pt;">
+            <td style="width:366.95pt; border-right:0.75pt solid #bfbfbf; border-bottom:0.75pt solid #bfbfbf; padding-right:5.03pt; padding-left:5.03pt; vertical-align:middle;">
+                <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; font-size:12pt;"><span style="font-family:Dubai;"> sasas </span></p>
+            </td>
+            <td style="width:98.3pt; border-left:0.75pt solid #bfbfbf; border-bottom:0.75pt solid #bfbfbf; padding-right:5.03pt; padding-left:5.03pt; vertical-align:middle;">
+                <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; font-size:12pt;"><span style="font-family:Dubai;">الاسم</span></p>
+            </td>
+        </tr>
+        <tr style="height:25.2pt;">
+            <td style="width:366.95pt; border-top:0.75pt solid #bfbfbf; border-right:0.75pt solid #bfbfbf; border-bottom:0.75pt solid #bfbfbf; padding-right:5.03pt; padding-left:5.03pt; vertical-align:middle; background-color:#f2f2f2;">
+                <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; font-size:12pt;"><span style="font-family:Dubai;">aaaa</span></p>
+            </td>
+            <td style="width:98.3pt; border-top:0.75pt solid #bfbfbf; border-left:0.75pt solid #bfbfbf; border-bottom:0.75pt solid #bfbfbf; padding-right:5.03pt; padding-left:5.03pt; vertical-align:middle; background-color:#f2f2f2;">
+                <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; font-size:12pt;"><span style="font-family:Dubai;">رقم الهوية / الإقامة</span></p>
+            </td>
+        </tr>
+        <tr style="height:25.2pt;">
+            <td style="width:366.95pt; border-top:0.75pt solid #bfbfbf; border-right:0.75pt solid #bfbfbf; border-bottom:0.75pt solid #bfbfbf; padding-right:5.03pt; padding-left:5.03pt; vertical-align:middle;">
+                <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; font-size:12pt;"><span style="font-family:Dubai;">ffff</span></p>
+            </td>
+            <td style="width:98.3pt; border-top:0.75pt solid #bfbfbf; border-left:0.75pt solid #bfbfbf; border-bottom:0.75pt solid #bfbfbf; padding-right:5.03pt; padding-left:5.03pt; vertical-align:middle;">
+                <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; font-size:12pt;"><span style="font-family:Dubai;">الجنسية</span></p>
+            </td>
+        </tr>
+        <tr style="height:25.2pt;">
+            <td style="width:366.95pt; border-top:0.75pt solid #bfbfbf; border-right:0.75pt solid #bfbfbf; padding-right:5.03pt; padding-left:5.03pt; vertical-align:middle; background-color:#f2f2f2;">
+                <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; font-size:12pt;"><span style="font-family:Dubai;">5</span></p>
+            </td>
+            <td style="width:98.3pt; border-top:0.75pt solid #bfbfbf; border-left:0.75pt solid #bfbfbf; padding-right:5.03pt; padding-left:5.03pt; vertical-align:middle; background-color:#f2f2f2;">
+                <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; font-size:12pt;"><span style="font-family:Dubai;">ssss</span></p>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<p style="margin-top:0pt; margin-bottom:8pt; line-height:108%; font-size:12pt;"><span style="font-family:Dubai;">&nbsp;</span></p>
+<p dir="rtl" style="margin-top:0pt; margin-bottom:8pt; line-height:108%; font-size:14pt;"><strong><span style="font-family:Dubai;">العنوان الوطني</span></strong></p>
+<table cellpadding="0" cellspacing="0" style="border:0.75pt solid #bfbfbf; border-collapse:collapse; margin-left: auto;">
+    <tbody>
+        <tr style="height:25.2pt;">
+            <td style="width:366.95pt; border-right:0.75pt solid #bfbfbf; border-bottom:0.75pt solid #bfbfbf; padding-right:5.03pt; padding-left:5.03pt; vertical-align:middle;">
+                <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; font-size:12pt;"><span style="font-family:Dubai;">sssss&nbsp;</span><span style="font-family:Dubai;">المعلمي،</span><span style="font-family:Dubai;">&nbsp;الربوة</span></p>
+            </td>
+            <td style="width:98.3pt; border-left:0.75pt solid #bfbfbf; border-bottom:0.75pt solid #bfbfbf; padding-right:5.03pt; padding-left:5.03pt; vertical-align:middle;">
+                <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; font-size:12pt;"><span style="font-family:Dubai;">العنوان</span></p>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<p style="margin-top:0pt; margin-bottom:8pt; line-height:108%; font-size:12pt;"><span style="font-family:Dubai;">&nbsp;</span></p>
+<p dir="rtl" style="margin-top:0pt; margin-bottom:8pt; line-height:108%; font-size:14pt;"><strong><span style="font-family:Dubai;">معلومات التواصل</span></strong></p>
+<table cellpadding="0" cellspacing="0" style="border:0.75pt solid #bfbfbf; border-collapse:collapse; margin-left: auto;">
+    <tbody>
+        <tr style="height:25.2pt;">
+            <td style="width:366.95pt; border-right:0.75pt solid #bfbfbf; border-bottom:0.75pt solid #bfbfbf; padding-right:5.03pt; padding-left:5.03pt; vertical-align:middle;">
+                <p style="margin-top:0pt; margin-bottom:0pt; font-size:12pt;"><span style="font-family:Dubai;"> ssss </span></p>
+            </td>
+            <td style="width:98.3pt; border-left:0.75pt solid #bfbfbf; border-bottom:0.75pt solid #bfbfbf; padding-right:5.03pt; padding-left:5.03pt; vertical-align:middle;">
+                <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; font-size:12pt;"><span style="font-family:Dubai;">رقم الجوال</span></p>
+            </td>
+        </tr>
+        <tr style="height:25.2pt;">
+            <td style="width:366.95pt; border-top:0.75pt solid #bfbfbf; border-right:0.75pt solid #bfbfbf; border-bottom:0.75pt solid #bfbfbf; padding-right:5.03pt; padding-left:5.03pt; vertical-align:middle; background-color:#f2f2f2;">
+                <p style="margin-top:0pt; margin-bottom:0pt; font-size:12pt;"><span style="font-family:Dubai;">ssss</span></p>
+            </td>
+            <td style="width:98.3pt; border-top:0.75pt solid #bfbfbf; border-left:0.75pt solid #bfbfbf; border-bottom:0.75pt solid #bfbfbf; padding-right:5.03pt; padding-left:5.03pt; vertical-align:middle; background-color:#f2f2f2;">
+                <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; font-size:12pt;"><span style="font-family:Dubai;">رقم الجوال (2)</span></p>
+            </td>
+        </tr>
+        <tr style="height:25.2pt;">
+            <td style="width:366.95pt; border-top:0.75pt solid #bfbfbf; border-right:0.75pt solid #bfbfbf; padding-right:5.03pt; padding-left:5.03pt; vertical-align:middle;">
+                <p style="margin-top:0pt; margin-bottom:0pt; font-size:12pt;"><span style="font-family:Dubai;">Ahdal.fa@gmail.com</span></p>
+            </td>
+            <td style="width:98.3pt; border-top:0.75pt solid #bfbfbf; border-left:0.75pt solid #bfbfbf; padding-right:5.03pt; padding-left:5.03pt; vertical-align:middle;">
+                <p dir="rtl" style="margin-top:0pt; margin-bottom:0pt; font-size:12pt;"><span style="font-family:Dubai;">fffff</span></p>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<p style="margin-top:0pt; margin-bottom:8pt; line-height:108%; font-size:12pt;"><span style="font-family:Dubai;">&nbsp;</span></p>
+<p style="margin-top:0pt; margin-bottom:8pt; line-height:108%; font-size:12pt;"><span style="font-family:Dubai;">&nbsp;</span></p>
+</div>
+  </div>
+      </div>
+    </td></tr></tbody>
+    <tfoot><tr><td>
+      <div class="footer-space">&nbsp;</div>
+    </td></tr></tfoot>
+  </table>
+  
+  <div class="header">COOL HEADER</div>
+  <div class="footer">AWESOME FOOTER</div>

@@ -1,0 +1,93 @@
+<header class="header" >
+  <div *ngIf="screenWidth>550;else burgerMenu" [className]="Scrolled ? 'mainNav sticky' : 'mainNav2 sticky2'">
+    
+    <ul
+      nz-menu
+      nzMode="horizontal"
+      class="ulStyles"
+    >
+      <li pageScroll [pageScrollDuration]="500" href="#Home" nz-menu-item style="font-family: Almarai; font-size: 25px">
+        <i
+          style="
+            font-size: 30px;
+            float: right;
+            margin-top: 6.5px;
+            padding-left: 8px;
+          "
+          nz-icon
+          nzType="home"
+          nzTheme="outline"
+        ></i>
+        أيادي الأمل
+      </li>
+
+      <li
+      pageScroll [pageScrollDuration]="500" href="#About"
+        nz-menu-item
+        class="subLi"
+      >
+        خدماتنا
+      </li>
+
+      <li
+        pageScroll [pageScrollDuration]="500"  href="#ProceduresInfo"
+        nz-menu-item
+        class="subLi"
+      >
+
+        عن الإجرائات
+      </li>    
+      <button *ngIf="this.showResult" pageScroll [pageScrollDuration]="500" href="#ProceduresProgress"  class="NabButton" nz-button nzType="default" nzShape="round"> متابعة الإجرائات </button>
+      <li *ngIf="(emp.currentEmployee$ | async) ===null" nz-menu-item style="float: left;">
+        <app-employeesLogin [scrolled] = 'Scrolled'></app-employeesLogin>
+      </li>
+      <li nz-menu-item style="float: left; margin-top: 5px;">
+        <ng-container  *ngIf="emp.currentEmployee$ | async">
+          <i style="font-size:x-large; color: #3f3f44;" routerLink="/Emp" class="fas fa-door-open"></i>     
+        </ng-container>
+      </li>
+    </ul>
+  </div>
+  <div class="title">
+    <img src="../../../assets/logoHopeHands.png" style="width:150px;height:180px"/>
+    <div class="smallsep heading"></div>
+    <h1>  أيادي الأمل للإستقدام</h1>
+    <h2>خدمات استقدام متكاملة</h2>
+    <h2> {{availableData}} </h2>
+   <section *ngIf="availableData.length==0" class="proceduresButton">
+    <button id="ButtonToRemove" (click)=" ClientLogin()" class="draw meet buttonShape ">متابعة الإجرائات</button>
+    <form *ngIf="!ShowTheButton&&availableData.length==0" nz-form [formGroup]="validateForm" class="login-form" (ngSubmit)="submitForm()">
+     <nz-form-item>
+        <nz-form-control nzErrorTip="الرجاء إدخال رقم الهوية">
+          <nz-input-group nzPrefixIcon="user">
+            <input type="number" nz-input formControlName="id" placeholder="رقم الهوية" />
+          </nz-input-group>
+        </nz-form-control>
+      </nz-form-item>
+      <button  nz-button class="login-form-button login-form-margin" [nzType]="'primary'">متابعة</button>
+    </form>
+    <ng-template #indicatorTemplate><i nz-icon nzType="loading"></i></ng-template>
+    
+</section>
+<ng-template  #indicatorTemplate><i style="font-size: 30px;" nz-icon nzType="loading"></i></ng-template>
+    <nz-spin *ngIf="!showResult&&availableData.length!=0"  nzSimple [nzIndicator]="indicatorTemplate"> </nz-spin>
+<nz-result *ngIf="showResult" nzStatus="success" nzTitle='مرحباً | {{clientName}}'>
+  <div nz-result-extra>
+    <button pageScroll [pageScrollDuration]="500" href="#ProceduresProgress" nzSize="large" nz-button nzType="primary" class="resultButtons">لمتابعة الإجرائات</button>
+    <button [nzLoading]='isLoading' (click) = "clientLogOut()" nzDanger nzSize="large" nz-button nzType="primary" class="resultButtons">{{isLoading?'... يتم تسجيل الخروج ':'تسجيل الخروج'}}</button>
+    
+  </div>
+</nz-result>
+      <a class="HeaderA smoothscroll" href="#about">
+        <div class="mouse">
+          <div class="wheel"></div>
+        </div>
+      </a> </div>
+    <a class="HeaderA smoothscroll" href="#about">
+      <div class="scrollDown"></div>
+    </a>
+      
+</header>
+<ng-template #burgerMenu>
+<h1>LOADING . . .</h1>
+</ng-template>

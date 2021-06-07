@@ -1,0 +1,34 @@
+
+
+
+
+.headStyle{
+    font-family: 'Markazi Text';
+    font-size: 25px;
+    
+}
+
+.subStyle{
+
+  font-family:'Almarai';
+  font-size: 15px;
+  direction: rtl;
+  text-align: center;
+}
+
+.ant-menu:not(.ant-menu-horizontal) .ant-menu-item-selected{
+  background-color: #1f3c88;
+  color: white;
+}
+
+.user{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 95%;
+  text-align: center;
+}
+
+::ng-deep .ant-message{
+  font-family: almarai,'Roboto Mono';
+}

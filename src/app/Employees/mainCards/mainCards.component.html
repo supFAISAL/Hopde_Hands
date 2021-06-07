@@ -1,0 +1,107 @@
+<!--
+  
+  OLD 
+  
+  <div  nz-row   [nzGutter]="[0, 24]" nzAlign="top" class="rowStyle">
+  <div nz-col  nzSpan="8" nzOrder="6">
+    <nz-card style="width: 300px;text-align:center;" nzTitle="المكاتب الخارجية">    
+      <app-officesForm></app-officesForm>
+      <button routerLink="/Emp/Offices" nzBlock nz-button nzType="text" nzShape="round" nzSize="large" class="btnStyle"><span class="btnText">جميع المكاتب الخارجية</span></button>
+    </nz-card>
+  </div>
+  <div nz-col  nzSpan="8" nzOrder="5">
+    <nz-card style="width: 300px;text-align:center;" nzTitle="سندات القبض">
+      
+      <button disabled nzBlock nz-button nzType="text" nzShape="round" nzSize="large" class="btnStyle"><span class="btnText">جديد</span></button>
+      <button disabled nzBlock nz-button nzType="text" nzShape="round" nzSize="large" class="btnStyle"><span class="btnText">أرصدة العملاء</span></button>
+      <button disabled nzBlock nz-button nzType="text" nzShape="round" nzSize="large" class="btnStyle"><span class="btnText">جميع سندات القبض</span></button>
+    </nz-card>
+  </div>
+  <div nz-col  nzSpan="8" nzOrder="4">
+    <nz-card style="width: 300px;text-align:center;" nzTitle="إجرائات التجديد">     
+      <button routerLink="/Emp/renewal-Procedures" nzBlock nz-button nzType="text" nzShape="round" nzSize="large" class="btnStyle"><span class="btnText">إجرائات التجديد</span></button>
+      <button routerLink="/Emp/polo-Procedures" nzBlock nz-button nzType="text" nzShape="round" nzSize="large" class="btnStyle"><span class="btnText">إجرائات تجديد البولو</span></button>
+    </nz-card>
+  </div>
+  <div nz-col  nzSpan="8" nzOrder="3">
+    <nz-card style="width: 300px;text-align:center;" nzTitle="حركات الصرف">
+      <button routerLink="/Emp/External-Transfers" nzBlock nz-button nzType="text" nzShape="round" nzSize="large" class="btnStyle"><span class="btnText">التحويلات الخارجية</span></button>
+      <button routerLink="/Emp/Monthly-Expenses" nzBlock nz-button nzType="text" nzShape="round" nzSize="large" class="btnStyle"><span class="btnText">التكاليف الشهرية للعاملة</span></button>
+      <button routerLink="/Emp/expenses" nzBlock nz-button nzType="text" nzShape="round" nzSize="large" class="btnStyle"><span class="btnText">كشف المصروفات</span></button>
+    </nz-card>
+  </div>
+
+  <div nz-col  nzSpan="8" nzOrder="2">
+    <nz-card style="width: 300px;text-align:center;" nzTitle="الضمان">    
+      <button disabled nzBlock nz-button nzType="text" nzShape="round" nzSize="large" class="btnStyle"><span class="btnText">تتبع فترة الضمان</span></button>
+    </nz-card>
+  </div>
+
+  <div nz-col  nzSpan="8" nzOrder="1">
+    <nz-card style="width: 300px;text-align:center;" nzTitle="طلبات الإستقدام">
+      <app-newOrderForm></app-newOrderForm>
+      <button routerLink="/Emp/All-Orders" nzBlock nz-button nzType="text" nzShape="round" nzSize="large" class="btnStyle"><span class="btnText">جميع الطلبات</span></button>
+    </nz-card>
+  </div>
+</div> -->
+
+
+
+
+
+<div class="container" style="margin-top: 15%; direction: rtl;">
+  <div class="row row-cols-3">
+    <div class="col-sm">
+      <nz-card style="width: 300px;text-align:center;" nzTitle="طلبات الإستقدام">
+        <app-newOrderForm></app-newOrderForm>
+        <button routerLink="/Emp/All-Orders" nzBlock nz-button nzType="text" nzShape="round" nzSize="large" class="btnStyle"><span class="btnText">جميع الطلبات</span></button>
+        <button routerLink="/Emp/arrival" nzBlock nz-button nzType="text" nzShape="round" nzSize="large" class="btnStyle"><span class="btnText">إستلام العمالة</span></button>
+        
+      </nz-card>
+    </div>
+    <div *ngIf="userRole==='1'" class="col-sm">
+      <nz-card style="width: 300px;text-align:center;" nzTitle="حركات الصرف">
+        <button routerLink="/Emp/External-Transfers" nzBlock nz-button nzType="text" nzShape="round" nzSize="large" class="btnStyle"><span class="btnText">التحويلات الخارجية</span></button>
+        <button routerLink="/Emp/Monthly-Expenses" nzBlock nz-button nzType="text" nzShape="round" nzSize="large" class="btnStyle"><span class="btnText">التكاليف الشهرية للعاملة</span></button>
+        <button routerLink="/Emp/expenses" nzBlock nz-button nzType="text" nzShape="round" nzSize="large" class="btnStyle"><span class="btnText">كشف المصروفات</span></button>
+      </nz-card>
+    </div>
+    
+
+    <div class="col-sm">
+      <nz-card style="width: 300px;text-align:center;" nzTitle="المكاتب الخارجية">    
+        <app-officesForm></app-officesForm>
+        <button routerLink="/Emp/Offices" nzBlock nz-button nzType="text" nzShape="round" nzSize="large" class="btnStyle"><span class="btnText">جميع المكاتب الخارجية</span></button>
+      </nz-card>
+    </div>
+    
+    <div class="col-sm">
+      <nz-card style="width: 300px;text-align:center;" nzTitle="إجرائات التجديد">     
+        <button routerLink="/Emp/renewal-Procedures" nzBlock nz-button nzType="text" nzShape="round" nzSize="large" class="btnStyle"><span class="btnText">إجرائات التجديد</span></button>
+        <button routerLink="/Emp/polo-Procedures" nzBlock nz-button nzType="text" nzShape="round" nzSize="large" class="btnStyle"><span class="btnText">إجرائات تجديد البولو</span></button>
+      </nz-card>
+    </div>
+    
+
+    <div *ngIf="userRole==='0'" class="col-sm" style="padding-top: 20px;">
+      <nz-card style="width: 300px;text-align:center;" nzTitle="الموظفين">    
+        <button routerLink="/Emp/empAdd" nzBlock nz-button nzType="text" nzShape="round" nzSize="large" class="btnStyle"><span class="btnText">الموظفين</span></button>
+
+      </nz-card>
+    </div>
+
+    <div class="col-sm" style="padding-top: 20px;">
+      <nz-card style="width: 300px;text-align:center;" nzTitle="سندات القبض">
+        <button disabled nzBlock nz-button nzType="text" nzShape="round" nzSize="large" class="btnStyle"><span class="btnText">جديد</span></button>
+        <button disabled nzBlock nz-button nzType="text" nzShape="round" nzSize="large" class="btnStyle"><span class="btnText">أرصدة العملاء</span></button>
+        <button disabled nzBlock nz-button nzType="text" nzShape="round" nzSize="large" class="btnStyle"><span class="btnText">جميع سندات القبض</span></button>
+      </nz-card>
+    </div>
+    <div class="col-sm" style="padding-top: 20px;">
+      <nz-card style="width: 300px;text-align:center;" nzTitle="الضمان">    
+        <button disabled nzBlock nz-button nzType="text" nzShape="round" nzSize="large" class="btnStyle"><span class="btnText">تتبع فترة الضمان</span></button>
+      </nz-card>
+    </div> 
+  </div>
+  </div>
+  

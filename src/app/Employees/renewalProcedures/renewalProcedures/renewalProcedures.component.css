@@ -1,0 +1,48 @@
+
+.rowStyle{
+    position: relative;
+    top: 15%;
+}
+
+tr>th{
+    text-align: center;
+    font-family: Tajawal,'Roboto Mono';
+    font-weight: bolder;
+}
+tr>td   {
+    text-align: center;
+    font-family: 'Oswald', 'Tajawal';
+    font-weight: lighter;
+    font-size: medium;
+}
+
+::ng-deep .ant-table-pagination.ant-pagination{
+    direction: ltr;
+}
+
+.deletebtn:hover{
+    cursor: pointer;
+    color: #f05454;
+  }
+
+  .addBtn{
+    width: fit-content;
+    background-color: #1f3c88;
+    font-family: Tajawal,'Roboto Mono';
+    color: white;
+    float: right;
+
+}
+
+::ng-deep .ant-dropdown-rtl .ant-dropdown-menu-item,
+ .ant-dropdown-rtl .ant-dropdown-menu-submenu-popup li,
+  .ant-dropdown-rtl .ant-dropdown-menu-submenu-popup ul,
+   .ant-dropdown-rtl .ant-dropdown-menu-submenu-title{
+
+    font-family: almarai,'Roboto Mono';
+
+}
+
+.moneyStyle{
+    font-family: 'Roboto Condensed', sans-serif;
+  }

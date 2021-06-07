@@ -1,0 +1,49 @@
+    <!-- we added the row and col div's to arrange things  -->
+   
+    <div  nz-row class="rowStyle">
+      <div nz-col [nzSpan]="24">
+        <!-- nzScroll is for making the table scrollable if there is much data -->
+    <nz-table  dir="rtl" #fixedTable nzBordered #basicTable [nzData]="arrivals" [nzScroll]="{ x: '1150px', y: '480px' }">
+      <thead>
+        <tr>
+            <th>اسم الكفيل</th>
+            <th>رقم الجوال</th>
+            <th>اسم العاملة</th>
+            <th>رقم التأشيرة</th>
+            <th>موعد الوصول</th>
+            <th>حالة الإستلام</th>
+            <th>المستلم</th>
+
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let data of basicTable.data"> 
+          <td>{{ data.clientName }}</td>
+          <td>{{ data.clientPhone }}</td>
+          <td>{{ data.workerName }}</td>
+          <td>{{ data.workerVisa }}</td>
+          <td style=" font-family: Almarai;">{{ data.workerArrival?.toLocaleDateString('ar-EG', optionsTicket) }}</td>
+          <td *ngIf="data.pickupStatus;else pickedBy"><nz-tag nzColor="success">
+            <i nz-icon nzType="check-circle"></i>
+            <span style=" font-family: Almarai;">تم الإستلام</span>
+          </nz-tag></td>
+          <ng-template #pickedBy>
+            <td><button nz-button nzType="default" (click)="pickup(data.workerVisa)">إستلام</button></td>
+            </ng-template>
+
+            <td *ngIf="data.pickupStatus;else picker"> {{data.pickedBy}} </td>
+          <ng-template #picker>
+            <td style=" font-family: Almarai;">لا يوجد</td>
+            </ng-template>
+        </tr>
+
+      </tbody>
+    </nz-table>
+    </div>
+    </div>
+    
+    
+    
+    
+    
+    

@@ -1,0 +1,73 @@
+/* .addBtn{
+    width: fit-content;
+    font-family: Tajawal,'Roboto Mono';
+    color: black;
+
+}
+
+
+.page-header, .page-header-space {
+    height: 100px;
+  }
+  
+  .page-footer, .page-footer-space {
+    height: 50px;
+  
+  }
+  
+  .page-footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    border-top: 1px solid black; 
+    background: yellow;
+  }
+  
+  .page-header {
+    position: fixed;
+    top: 0mm;
+    width: 100%;
+    border-bottom: 1px solid black; 
+    background: yellow; 
+  }
+  
+  .page {
+    page-break-after: always;
+  }
+  
+  @page {
+    margin: 20mm
+  }
+  
+  @media print {
+     thead {display: table-header-group;} 
+     tfoot {display: table-footer-group;}
+     
+     button {display: none;}
+     
+     body {margin: 0;}
+
+     header nav, footer {
+      display: none;
+   }
+  } */
+
+
+  .client { page-break-after: always; }
+.client:last-child { page-break-after: avoid; }
+.worker{ page-break-before: always; }
+
+
+.header, .header-space, .footer, .footer-space { height: 100px; }
+.header { position: fixed; top: 0; }
+.footer { position: fixed; bottom: 0; }
+@media screen {
+  :host {
+    display: none;
+  }
+}
+
+    @media print {
+      @page { margin: 0; }
+      body { margin: 1.6cm; }
+    }

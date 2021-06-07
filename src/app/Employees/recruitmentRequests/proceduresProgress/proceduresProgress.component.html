@@ -1,0 +1,6 @@
+<div [ngSwitch]="orderData.worker.nationality">
+    <app-philippinesToggle [orderData]="orderData" *ngSwitchCase=" 'Philippines' "></app-philippinesToggle>
+         <app-bangladeshToggle [orderData]="orderData" *ngSwitchCase=" 'Bangladesh' "></app-bangladeshToggle>
+         <app-ugandaToggle [orderData]="orderData" *ngSwitchCase=" 'Uganda' "></app-ugandaToggle>
+         <app-kenyaToggle [orderData]="orderData" *ngSwitchCase=" 'Kenya' "></app-kenyaToggle>
+</div>

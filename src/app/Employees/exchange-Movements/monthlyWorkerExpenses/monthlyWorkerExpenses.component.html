@@ -1,0 +1,109 @@
+    <!-- we added the row and col div's to arrange things  (was in div Row  nzJustify="center" nzAlign="top")  -->
+
+   <!--  <div class="rowStyle" nz-row>
+      <div nz-col [nzSpan]="24">
+      <div style="text-align: right;">
+      <button (click)="exportingExcel()" class="addBtn" style="margin-right: 10px;" nz-button nzType="text"><i class="fas fa-file-excel" style="padding-right: 10px;"></i>EXCEL</button>
+      <button (click)="showModal()" class="addBtn" nz-button nzType="text"><i class="fas fa-plus" style="padding-right: 10px;"></i>إضافة</button>
+       <nz-modal nzoverFlow="true" nzWidth="800px" nzWrapClassName="vertical-center-modal" (nzOnCancel)="handleCancel()" [(nzVisible)]="isVisible" nzTitle="• نموذج إدخال البيانات •">
+        <form  nz-form dir="rtl" [formGroup]="validateForm" (ngSubmit)="submitForm()">
+          <nz-form-item>
+            <nz-form-label [nzSm]="7" [nzXs]="24" class="client" nzRequired>رقم مساند</nz-form-label>
+            <nz-form-control [nzSm]="14" [nzXs]="24" nzHasFeedback nzValidatingTip="Validating..." [nzErrorTip]="userErrorTpl" [nzSuccessTip]="workerName">
+              <input class="inputStyle" nz-input formControlName="musandNumber" />
+              <ng-template #userErrorTpl let-control>
+                <ng-container *ngIf="control.hasError('required')">
+                  الرجاء إدخال البيانات المطلوبة
+                </ng-container>
+                <ng-container *ngIf="control.hasError('notFound')">
+                  رقم مساند غير موجود
+                </ng-container>
+              </ng-template>
+            </nz-form-control>
+          </nz-form-item>
+          <nz-form-item>
+            <nz-form-label  [nzSm]="7" [nzXs]="24" class="client" nzRequired>تكلفة المكتب الخارجي</nz-form-label>
+            <nz-form-control [nzSm]="14" [nzXs]="24"  nzErrorTip="الرجاء إدخال البيانات المطلوبة">
+              <input currencyMask [options]='currencyOptions' class="inputStyle"  nz-input formControlName="externalOffice"  />
+            </nz-form-control>
+          </nz-form-item>
+          <nz-form-item>
+            <nz-form-label  [nzSm]="7" [nzXs]="24" class="client" nzRequired>عقد العاملة</nz-form-label>
+            <nz-form-control [nzSm]="14" [nzXs]="24"  nzErrorTip="الرجاء إدخال البيانات المطلوبة">
+              <input currencyMask [options]='currencyOptions'  class="inputStyle"  nz-input formControlName="workerContract"  />
+            </nz-form-control>
+          </nz-form-item>
+          <nz-form-item>
+            <nz-form-label  [nzSm]="7" [nzXs]="24" class="client" nzRequired>وكالة</nz-form-label>
+            <nz-form-control [nzSm]="14" [nzXs]="24"  nzErrorTip="الرجاء إدخال البيانات المطلوبة">
+              <input currencyMask [options]='currencyOptions' class="inputStyle"  nz-input formControlName="agency"  />
+            </nz-form-control>
+          </nz-form-item>
+          <nz-form-item>
+            <nz-form-label  [nzSm]="7" [nzXs]="24" class="client" nzRequired>إرسال</nz-form-label>
+            <nz-form-control [nzSm]="14" [nzXs]="24"  nzErrorTip="الرجاء إدخال البيانات المطلوبة">
+              <input currencyMask [options]='currencyOptions' class="inputStyle"  nz-input formControlName="send"  />
+            </nz-form-control>
+          </nz-form-item>
+          <nz-form-item>
+            <nz-form-label  [nzSm]="7" [nzXs]="24" class="client" nzRequired>مصاريف عاملة</nz-form-label>
+            <nz-form-control [nzSm]="14" [nzXs]="24"  nzErrorTip="الرجاء إدخال البيانات المطلوبة">
+              <input currencyMask [options]='currencyOptions' class="inputStyle"  nz-input formControlName="generalExpenses"  />
+            </nz-form-control>
+          </nz-form-item>
+          <nz-form-item>
+            <nz-form-label  [nzSm]="7" [nzXs]="24" class="client" nzRequired>نسبة مساند</nz-form-label>
+            <nz-form-control [nzSm]="14" [nzXs]="24"  nzErrorTip="الرجاء إدخال البيانات المطلوبة">
+              <input currencyMask [options]='precentageOptions'  class="inputStyle"  nz-input formControlName="musandRatio"  />
+            </nz-form-control>
+          </nz-form-item>
+          <nz-form-item>
+            <nz-form-label  [nzSm]="7" [nzXs]="24" class="client" nzRequired>إستلام العاملة</nz-form-label>
+            <nz-form-control [nzSm]="14" [nzXs]="24"  nzErrorTip="الرجاء إدخال البيانات المطلوبة">
+              <input currencyMask [options]='currencyOptions' class="inputStyle"  nz-input formControlName="workerPickup"  />
+            </nz-form-control>
+          </nz-form-item>
+        </form> 
+        <div *nzModalFooter>
+          <button nz-button nzType="default" (click)="handleCancel()">Cancel</button>
+          <button [disabled]="!validateForm.valid" nz-button nzType="primary" (click)="submitForm()">Submit</button>
+        </div>
+       </nz-modal>
+        </div> -->
+        <!-- nzScroll is for making the table scrollable if there is much data -->
+    <!-- <nz-table id="excel-table" dir="rtl" #fixedTable nzBordered #basicTable [nzData]="monthlyExpenses" [nzScroll]="{ x: '1150px', y: '480px' }">
+      <thead>
+        <tr>
+      <th>رقم مساند</th>
+      <th>تكلفة المكتب الخارجي</th>
+      <th>عقد العاملة</th>
+      <th>وكالة</th>
+      <th>إرسال</th>
+      <th>مصاريف عامة</th>
+      <th>نسبة مساند</th>
+      <th> إستلام العاملة</th>
+      <th style="font-weight: bolder;">المجموع</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let data of basicTable.data">
+          <td>{{ data.musandNumber}}</td>
+          <td>{{ data.externalOffice.toLocaleString('en')}} SAR</td>
+          <td>{{ data.workerContract.toLocaleString('en')}} SAR</td>
+          <td>{{data.agency.toLocaleString('en')}} SAR</td>
+          <td>{{ data.send.toLocaleString('en')}} SAR</td>
+          <td> {{data.generalExpenses.toLocaleString('en')}} SAR</td>
+          <td> {{data.musandRatio.toLocaleString('en')}}%</td>
+          <td> {{data.workerPickup.toLocaleString('en')}} SAR</td>
+          <td style="font-weight: bolder;"> {{(data.externalOffice + data.workerContract + data.agency + data.send + data.generalExpenses + data.workerPickup).toLocaleString('en')}} SAR </td>
+        </tr>
+      </tbody>
+    </nz-table>
+    </div>
+    </div>
+    
+    
+    
+    
+    
+     -->

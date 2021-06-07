@@ -1,0 +1,91 @@
+<div class="Iconscontainer">
+  <ul class="steps">
+    <li
+      class="step {{RecivedProcedures[0].musaned_contract?'stepComplete': 'stepIncomplete'}} stepActive">
+      <span class="stepIcon"
+        ><img
+        style="padding-left: 3px;"
+        pageScroll [pageScrollDuration]="500" href="#ProceduresInfo"
+          src="../../../../../assets/contract.png"
+      /></span>
+      <span class="stepLabel"> عقد مساند </span>
+    </li>
+    <li
+      class="step {{RecivedProcedures[1].polo_contract?'stepComplete': 'stepIncomplete'}} {{RecivedProcedures[0].musaned_contract&&!RecivedProcedures[1].polo_contract?'stepActive':'stepInactive'}} ">
+      <span class="stepIcon"
+        ><img
+        pageScroll [pageScrollDuration]="500" href="#ProceduresInfo"
+          src="../../../../../assets/polo.png"
+      /></span>
+      <span class="stepLabel"> عقد البولو </span>
+    </li>
+    <li
+      class="step {{RecivedProcedures[2].sending_contract?'stepComplete': 'stepIncomplete'}} {{RecivedProcedures[1].polo_contract&&!RecivedProcedures[2].sending_contract?'stepActive':'stepInactive'}}">
+      <span class="stepIcon"
+        ><img
+        pageScroll [pageScrollDuration]="500" href="#ProceduresInfo"
+          src="../../../../../assets/send.png"
+      /></span>
+      <span class="stepLabel"> إرسال العقد </span>
+    </li>
+    <li
+      class="step {{RecivedProcedures[3].contract_signed?'stepComplete': 'stepIncomplete'}} {{RecivedProcedures[2].sending_contract&&!RecivedProcedures[3].contract_signed?'stepActive':'stepInactive'}}">
+      <span class="stepIcon"
+        ><img
+        style="padding-left: 4px;"
+        pageScroll [pageScrollDuration]="500" href="#ProceduresInfo"
+        src="../../../../../assets/contract sign.png"
+      /></span>
+      <span class="stepLabel"> توقيع العاملة </span>
+    </li>
+    <li
+      class="step {{RecivedProcedures[4].school?'stepComplete': 'stepIncomplete'}} {{RecivedProcedures[3].contract_signed&&!RecivedProcedures[4].school?'stepActive':'stepInactive'}}">
+      <span class="stepIcon"
+        ><img
+        pageScroll [pageScrollDuration]="500" href="#ProceduresInfo"
+        src="../../../../../assets/school.png"
+      /></span>
+      <span class="stepLabel"> المدرسة </span>
+    </li>
+    <li
+      class="step {{RecivedProcedures[5].fingerPrint?'stepComplete': 'stepIncomplete'}} {{RecivedProcedures[4].school&&!RecivedProcedures[5].fingerPrint?'stepActive':'stepInactive'}}">
+      <span class="stepIcon"
+        ><img
+        style="padding-left: 1px;"
+        pageScroll [pageScrollDuration]="500" href="#ProceduresInfo"
+        src="../../../../../assets/fingerprint.png"
+      /></span>
+      <span class="stepLabel"> البصمة </span>
+    </li>
+    <li
+      class="step {{RecivedProcedures[6].visa?'stepComplete': 'stepIncomplete'}} {{RecivedProcedures[5].fingerPrint&&!RecivedProcedures[6].visa?'stepActive':'stepInactive'}}">
+      <span class="stepIcon"
+        ><img
+        pageScroll [pageScrollDuration]="500" href="#ProceduresInfo"
+        src="../../../../../assets/visa.png"
+      /></span>
+      <span class="stepLabel"> الفيزا </span>
+    </li>
+    <li
+      class="step {{RecivedProcedures[7].travel_permit?'stepComplete': 'stepIncomplete'}} {{RecivedProcedures[6].visa&&!RecivedProcedures[7].travel_permit?'stepActive':'stepInactive'}}">
+      <span class="stepIcon"
+        ><img
+        pageScroll [pageScrollDuration]="500" href="#ProceduresInfo"
+        src="../../../../../assets/travel permit.png"
+      /></span>
+      <span class="stepLabel"> تصريح السفر </span>
+    </li>
+    <li
+      class="step {{RecivedProcedures[8].ticket_book?'stepComplete': 'stepIncomplete'}} {{RecivedProcedures[7].travel_permit&&!RecivedProcedures[8].ticket_book?'stepActive':'stepInactive'}}">
+      <span class="stepIcon"
+        ><img
+        pageScroll [pageScrollDuration]="500" href="#ProceduresInfo"
+        src="../../../../../assets/ticket.png"
+      /></span>
+      <span class="stepLabel">حجز التذاكر </span>
+    </li>
+  </ul>
+</div>
+
+
+<!-- {{ind===0?'stepActive': procedure[ind-1].Procedure.Status&&!procedure.Procedure.Status?'stepActive':'stepInactive'}} -->

@@ -1,0 +1,28 @@
+@import "~ng-zorro-antd/ng-zorro-antd.min.css";
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,300");
+
+/* Base Styles
+********************************************************************* */
+  html {
+	font-size: 62.5%;
+}
+body {
+	font-size: 1.5em;
+	line-height: 1.6;
+	font-weight: 400;
+	font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+	color: #222;
+}  
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+
+/* new for printing 1/30/2021 */
+@media print {
+	app-root > * { display: none; }
+/* if we changed the component of priting play with app-*component Name* cause when the application enter the router it will not display any and make the display of the component block 1/30/2021 */
+	app-root app-clientInformationPrint { display: block; }
+  }

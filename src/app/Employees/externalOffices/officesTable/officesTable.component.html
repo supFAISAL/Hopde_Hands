@@ -1,0 +1,40 @@
+    <!-- we added the row and col div's to arrange things  -->
+   
+    <div  nz-row class="rowStyle">
+      <div nz-col [nzSpan]="24">
+        <!-- nzScroll is for making the table scrollable if there is much data -->
+    <nz-table dir="rtl" #fixedTable nzBordered #basicTable [nzData]="offices" [nzScroll]="{ x: '1150px', y: '480px' }">
+      <thead>
+        <tr>
+          <th>رمز المكتب</th>
+          <th>المكتب</th>
+          <th>المنسق</th>
+          <th>رقم المنسق</th>
+          <th>الإيميل</th>
+          <th>الدولة</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let data of basicTable.data">
+          
+          <td>{{ data.id }}</td>
+          <td>{{ data.office }}</td>
+          <td>{{ data.coordinatorName }}</td>
+          <td>{{ data.coordinatorNumber }}</td>
+          <td>{{ data.email }}</td>
+          <td>{{ data.country }}</td>
+          <td>
+            <i class="fas fa-trash-alt deletebtn" nz-popconfirm nzPopconfirmTitle="Sure to delete?" (nzOnConfirm)="delete(data.id)"></i>
+          </td>
+        </tr>
+      </tbody>
+    </nz-table>
+    </div>
+    </div>
+    
+    
+    
+    
+    
+    

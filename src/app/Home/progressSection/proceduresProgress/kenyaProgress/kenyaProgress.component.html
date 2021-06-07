@@ -1,0 +1,73 @@
+<div class="Iconscontainer">
+  <ul class="steps">
+    <li
+      class="step {{RecivedProcedures[0].musaned_contract?'stepComplete': 'stepIncomplete'}} stepActive">
+      <span class="stepIcon"
+        ><img
+        style="padding-left: 3px;"
+        pageScroll [pageScrollDuration]="500" href="#ProceduresInfo"
+        src="../../../../../assets/contract.png"
+      /></span>
+      <span class="stepLabel"> عقد مساند </span>
+    </li>
+    <li
+      class="step {{RecivedProcedures[1].medical_examination?'stepComplete': 'stepIncomplete'}} {{RecivedProcedures[0].musaned_contract&&!RecivedProcedures[1].medical_examination?'stepActive':'stepInactive'}} ">
+      <span class="stepIcon"
+        ><img
+        style="padding-left: 3px;"
+        pageScroll [pageScrollDuration]="500" href="#ProceduresInfo"
+        src="../../../../../assets/medical.png"
+      /></span>
+      <span class="stepLabel"> الفحص الطبي </span>
+    </li>
+    <li
+      class="step {{RecivedProcedures[2].training?'stepComplete': 'stepIncomplete'}} {{RecivedProcedures[1].medical_examination&&!RecivedProcedures[2].training?'stepActive':'stepInactive'}}">
+      <span class="stepIcon"
+        ><img
+        pageScroll [pageScrollDuration]="500" href="#ProceduresInfo"
+        src="../../../../../assets/training.png"
+      /></span>
+      <span class="stepLabel"> التدريب </span>
+    </li>
+    <li
+      class="step {{RecivedProcedures[3].Police_certificate?'stepComplete': 'stepIncomplete'}} {{RecivedProcedures[2].training&&!RecivedProcedures[3].Police_certificate?'stepActive':'stepInactive'}}">
+      <span class="stepIcon"
+        ><img
+        pageScroll [pageScrollDuration]="500" href="#ProceduresInfo"
+        src="../../../../../assets/police.png"
+      /></span>
+      <span class="stepLabel"> شهادة الشرطة </span>
+    </li>
+    <li
+      class="step {{RecivedProcedures[4].fingerPrint?'stepComplete': 'stepIncomplete'}} {{RecivedProcedures[3].Police_certificate&&!RecivedProcedures[4].fingerPrint?'stepActive':'stepInactive'}}">
+      <span class="stepIcon"
+        ><img
+        style="padding-left: 4px;"
+        pageScroll [pageScrollDuration]="500" href="#ProceduresInfo"
+        src="../../../../../assets/fingerprint.png"
+      /></span>
+      <span class="stepLabel"> البصمة </span>
+    </li>
+    <li
+      class="step {{RecivedProcedures[5].visa?'stepComplete': 'stepIncomplete'}} {{RecivedProcedures[4].fingerPrint&&!RecivedProcedures[5].visa?'stepActive':'stepInactive'}}">
+      <span class="stepIcon"
+        ><img
+        pageScroll [pageScrollDuration]="500" href="#ProceduresInfo"
+        src="../../../../../assets/visa.png"
+      /></span>
+      <span class="stepLabel"> الفيزا </span>
+    </li>
+    <li
+      class="step {{RecivedProcedures[6].ticket_book?'stepComplete': 'stepIncomplete'}} {{RecivedProcedures[5].visa&&!RecivedProcedures[6].ticket_book?'stepActive':'stepInactive'}}">
+      <span class="stepIcon"
+        ><img
+        pageScroll [pageScrollDuration]="500" href="#ProceduresInfo"
+        src="../../../../../assets/ticket.png"
+      /></span>
+      <span class="stepLabel">حجز التذاكر </span>
+    </li>
+  </ul>
+</div>
+
+
+<!-- {{ind===0?'stepActive': procedure[ind-1].Procedure.Status&&!procedure.Procedure.Status?'stepActive':'stepInactive'}} -->

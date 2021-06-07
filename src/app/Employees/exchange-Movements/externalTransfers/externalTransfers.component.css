@@ -1,0 +1,121 @@
+
+.rowStyle{
+  position: relative;
+  top: 15%;
+}
+
+tr th{
+  text-align: center;
+  font-family: Tajawal,'Roboto Mono';
+}
+tr   {
+  text-align: center;
+  font-family: Tajawal,'Roboto Mono';
+  font-size: medium;
+}
+
+::ng-deep .ant-table-pagination.ant-pagination{
+  direction: ltr;
+}
+
+.addBtn{
+  width: fit-content;
+  background-color: #1f3c88;
+  font-family: Tajawal,'Roboto Mono';
+  color: white;
+
+}
+
+/* [nz-form]:not(.ant-form-inline):not(.ant-form-vertical) {
+  max-width: 600px;
+} */
+
+
+
+
+
+
+
+::ng-deep .ant-modal-title{
+  font-family:Tajawal, 'Roboto Mono';
+    color: #474544;
+    font-size: 28px;
+    font-weight: 800;
+    letter-spacing: .5px;
+    text-align: center;
+    text-transform: uppercase;
+    margin-bottom: 35px;
+}
+
+.inputStyle{
+  font-family:Tajawal,'Roboto Mono';
+  font-size: larger;
+  direction: ltr;
+}
+
+
+.ant-divider-horizontal.ant-divider-with-text{
+  font-family: 'Roboto Mono',Tajawal;
+  color: #364f6b;
+  font-size: 23px;
+  font-weight: bolder;
+  letter-spacing: 0.5px;
+  text-align: center;
+  text-transform: uppercase;
+  margin-bottom: 35px;
+}
+
+
+
+.phone-select {
+  width: 70px;
+}
+
+.register-are {
+  margin-bottom: 8px;
+}
+
+::ng-deep .ant-form-item-label.client>label{
+  font-size: medium;
+  font-family:Almarai,Roboto Mono;
+  color: #3fc1c9;
+}
+
+
+::ng-deep .vertical-center-modal .ant-modal {
+  top: 10px;
+}
+
+.btnStyle{
+  margin:5px;
+  border-color:#5eaaa8;
+}
+.btnText{
+text-align:center;
+font-family:'Almarai';
+font-size:17px;
+}
+
+/* To Hide the input of typer number Arrow (Spinner) */
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+-webkit-appearance: none; 
+margin: 0; 
+}
+/* end */
+::ng-deep .ant-form-item-explain.ant-form-item-explain-error {
+  font-family: Tajawal;
+}
+
+.deletebtn:hover{
+cursor: pointer;
+color: #f05454;
+}
+::ng-deep .ant-message{
+  font-family: almarai,'Roboto Mono';
+}
+
+.moneyStyle{
+  font-family: 'Roboto Condensed', sans-serif;
+}

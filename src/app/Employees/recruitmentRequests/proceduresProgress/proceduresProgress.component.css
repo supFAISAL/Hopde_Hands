@@ -1,0 +1,94 @@
+.switchLabel {
+    font-family:  'Markazi Text',Roboto;
+    font-size: 25px;
+    color: white;
+    margin-left:15%;
+    position: relative;
+    bottom: 2px;
+    text-transform: uppercase;
+
+  }
+
+  .modalTitle{
+
+        font-family: Tajawal , "Roboto Mono";
+        color: #474544;
+        font-size: 28px;
+        font-weight: 800;
+        letter-spacing: .5px;
+        text-transform:uppercase;
+  }
+
+  .titleChildren{
+        font-family: Tajawal,Roboto;
+        color: #474544;
+        font-size: 15px;
+        font-weight: 150;
+        letter-spacing: 1px;
+        text-transform: UpperCase;
+        color: grey;
+        
+  }
+  
+  .center {
+    text-align: center;
+  }
+
+  ::ng-deep .ant-switch{
+background-color: #eeeeee;
+  }
+
+  ::ng-deep.ant-switch-checked{
+      background-color: #1890ff;
+  } 
+
+  .card{
+
+    width:50%;
+    background-color: #0f3057;
+    border-style: groove;
+    margin-top: 10%;
+    padding: 30px 35px;
+    height:fit-content;
+    align-content: center;
+  }
+
+ ::ng-deep .ant-card-bordered{
+
+    border-radius:10px;
+
+  }
+
+  form {
+    max-width: 600px;
+    margin-top: 50px;
+    position: relative;
+    left: -10%;
+    
+  }
+
+  .displayedDate{
+    
+      font-family: "Roboto Mono";
+      color: green;
+      font-weight: bolder;
+      font-size:15px;
+    
+  }
+
+  .timeDiv{
+    position: absolute;
+    left: 57%; top: 25%;
+    margin-right: 10px;
+  }
+
+  .dates{
+    color: green;
+    font-size: medium;
+    padding-left: 5px;
+  }
+
+  ::ng-deep .ant-timeline, .ant-timeline-item{
+
+    text-transform: uppercase;
+  }

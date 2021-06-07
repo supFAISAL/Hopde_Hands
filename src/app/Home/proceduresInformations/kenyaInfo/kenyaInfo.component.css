@@ -1,0 +1,92 @@
+
+
+h1, h2, h3, h4, h5, h6 {
+    margin-top: 0;
+    margin-bottom: 3rem;
+    font-weight: 300;
+}
+h1 {
+    font-size: 4.0px;
+line-height: 1.2;
+letter-spacing: -.1rem;
+font-family: 'Markazi Text', 'Open Sans', Helvetica, Arial, sans-serif;
+}
+
+h3{
+    font-size: 3.0rem;
+line-height: 1.3;
+letter-spacing: -.1rem;
+font-family: 'Almarai','Open Sans', Helvetica, Arial, sans-serif;
+direction:rtl;
+}
+
+
+
+
+     p{
+         margin-top: 0;
+     }
+/* Links
+********************************************************************* */
+a {
+    color: #1EAEDB;
+}
+a:hover {
+    color: #0FA0CE;
+}
+
+p{
+
+    font-size: 2rem;
+    font-family:'Tajawal' ;
+    direction : rtl;
+}
+
+.skills {
+	padding: 100px 0 100px 0;
+	background-color: #F5F5F5;
+}
+
+
+
+
+    .block {
+        width: 70px;
+        height: 2px;
+        background: #e55d87; /* Old browsers */
+        background: -moz-linear-gradient(-45deg, #e55d87 0%, #5fc3e4 100%);
+        background: -webkit-linear-gradient(-45deg, #e55d87 0%, #5fc3e4 100%);
+        background: linear-gradient(135deg, #e55d87 0%, #5fc3e4 100%);
+        margin-bottom: 10px;
+        float: right;
+    }
+
+    .title .icon {
+        color: #FFFFFF;
+        font-size: 50px;
+        
+
+    }#team .icon {
+        font-size: 26px;
+    }
+
+    .icon {
+        padding-left: 10px;
+        color: #e55d87;
+        position: relative;
+        top: 7px;
+    }
+
+    ::ng-deep .ant-tabs>.ant-tabs-nav, .ant-tabs>div>.ant-tabs-nav{
+        font-family: almarai,'roboto mono';
+        margin-left: 50px;
+    }
+
+
+::ng-deep .ant-tabs-tab.ant-tabs-tab .ant-tabs-tab-btn{
+    font-size: 17px;
+}
+
+::ng-deep .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn{
+    font-size: 25px;
+}

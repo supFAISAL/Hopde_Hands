@@ -1,0 +1,191 @@
+
+    <div class="row rowStyle">
+      <div class="col-12">
+        <div style="text-align: right;">
+    <button (click)="showModal()" class="addBtn" nz-button nzType="text"><i class="fas fa-plus" style="padding-right: 10px;"></i>إضافة</button>
+         <nz-modal nzoverFlow="true" nzWidth="800px" nzWrapClassName="vertical-center-modal" (nzOnCancel)="handleCancel()" [(nzVisible)]="isVisible" nzTitle="• نموذج إدخال البيانات •">
+          <form nz-form dir="rtl" [formGroup]="validateForm" (ngSubmit)="submitForm()">
+            <div class="row">
+              <div class="col">
+                <nz-form-item>
+                  <nz-form-label nzRequired class="client"  >الإسم</nz-form-label>
+                  <nz-form-control nzHasFeedback nzErrorTip="الرجاء إدخال البيانات المطلوبة">
+                    <input  class="inputStyle" style="direction: rtl;" nz-input formControlName="fullName"  required />
+                  </nz-form-control>
+                </nz-form-item>
+              </div>
+              <div class="col">
+                <nz-form-item>
+                  <nz-form-label nzRequired class="client"  >رقم الهوية / الإقامة</nz-form-label>
+                  <nz-form-control nzHasFeedback nzValidatingTip="Validating..." [nzErrorTip]="idErrorTpl">
+                    <input type="numeric" minlength="10" maxlength="10" class="inputStyle" nz-input formControlName="id"  required />
+                    <ng-template #idErrorTpl let-control>
+                      <ng-container *ngIf="control.hasError('required')">
+                        الرجاء إدخال البيانات المطلوبة
+                      </ng-container>
+                  <ng-container *ngIf="control.hasError('maxlength')">يجب إدخال 10 أرقام</ng-container>
+                 <ng-container *ngIf="control.hasError('minlength')">يجب إدخال 10 أرقام</ng-container>
+                      <ng-container *ngIf="control.hasError('duplicated')">
+                        رقم الهوية مستخدم
+                      </ng-container>
+                    </ng-template>
+                  </nz-form-control>
+                </nz-form-item>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <nz-form-item>
+                  <nz-form-label nzRequired class="client"  >تاريخ الميلاد</nz-form-label>
+                  <nz-form-control nzHasFeedback nzErrorTip="الرجاء إدخال البيانات المطلوبة">
+                    <nz-date-picker formControlName="birthday"></nz-date-picker>
+                  </nz-form-control>
+                </nz-form-item>
+              </div>
+              <div class="col">
+                <nz-form-item>
+                  <nz-form-label nzRequired class="client"  >الجنسية</nz-form-label>
+                  <nz-form-control nzHasFeedback nzErrorTip="الرجاء إدخال البيانات المطلوبة">
+                    <input class="inputStyle" style="direction: rtl;" nz-input formControlName="nationality"  required />
+                  </nz-form-control>
+                </nz-form-item>
+              </div>
+              <div class="col">
+                <nz-form-item>
+                  <nz-form-label nzRequired class="client"  >الحالة الإجتماعية</nz-form-label>
+                  <nz-form-control nzErrorTip="الرجاء إدخال البيانات المطلوبة">
+                    <nz-select formControlName="status">
+                      <nz-option nzValue="متزوج" nzLabel="متزوج"></nz-option>
+                      <nz-option nzValue="أعزب" nzLabel="أعزب"></nz-option>      
+                    </nz-select>
+                  </nz-form-control>
+                </nz-form-item>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-6">
+                <nz-form-item>
+                  <nz-form-label nzRequired class="client"  >المسمى الوظيفي</nz-form-label>
+                  <nz-form-control nzHasFeedback nzErrorTip="الرجاء إدخال البيانات المطلوبة">
+                    <input  class="inputStyle" style="direction: rtl;" nz-input formControlName="jobtitle"  required />
+                  </nz-form-control>
+                </nz-form-item>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <nz-form-item>
+                  <nz-form-label nzRequired class="client"  >جوال</nz-form-label>
+                  <nz-form-control nzHasFeedback nzErrorTip="الرجاء إدخال البيانات المطلوبة">
+                    <input class="inputStyle" nz-input formControlName="phone"  required />
+                  </nz-form-control>
+                </nz-form-item>
+              </div>
+              <div class="col">
+                <nz-form-item>
+                  <nz-form-label nzRequired class="client"  >الإيميل</nz-form-label>
+                  <nz-form-control nzHasFeedback nzValidatingTip="Validating..." [nzErrorTip]="emailErrorTpl">
+                    <input class="inputStyle" nz-input formControlName="email" id="email"  required />
+                    <ng-template #emailErrorTpl let-control>
+                      <ng-container *ngIf="control.hasError('required')">
+                        الرجاء إدخال البيانات المطلوبة
+                      </ng-container>
+                      <ng-container *ngIf="control.hasError('duplicated')">
+                        الإيميل مستخدم
+                      </ng-container>
+                    </ng-template>
+                  </nz-form-control>
+                </nz-form-item>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-6">
+                <nz-form-item>
+                  <nz-form-label nzRequired class="client"  >إسم المستخدم</nz-form-label>
+                  <nz-form-control nzHasFeedback nzValidatingTip="Validating..." [nzErrorTip]="userErrorTpl">
+                    <input class="inputStyle" nz-input formControlName="username"  required />
+                    <ng-template #userErrorTpl let-control>
+                      <ng-container *ngIf="control.hasError('required')">
+                        الرجاء إدخال إسم المستخدم
+                      </ng-container>
+                      <ng-container *ngIf="control.hasError('duplicated')">
+                        الإسم مستخدم , يرجى التغيير
+                      </ng-container>
+                    </ng-template>
+                  </nz-form-control>
+                </nz-form-item>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <nz-form-item>
+                  <nz-form-label nzRequired class="client"  >كلمة المرور</nz-form-label>
+                  <nz-form-control nzHasFeedback nzErrorTip="الرجاء إدخال البيانات المطلوبة">
+                    <input type="password" class="inputStyle" nz-input formControlName="password" (ngModelChange)="updateConfirmValidator()"  required />
+                  </nz-form-control>
+                </nz-form-item>
+              </div>
+              <div class="col">
+                <nz-form-item>
+                  <nz-form-label nzRequired class="client"  >تأكيد كلمة المرور</nz-form-label>
+                  <nz-form-control nzHasFeedback [nzErrorTip]="errorTpl">
+                    <input type="password" class="inputStyle" nz-input formControlName="checkPassword"  required  />
+                    <ng-template #errorTpl let-control>
+                      <ng-container *ngIf="control.hasError('required')">
+                        الرجاء تأكيد الرقم السري
+                      </ng-container>
+                      <ng-container *ngIf="control.hasError('confirm')">
+                        الرقم السري غير متطابق
+                      </ng-container>
+                    </ng-template>
+                  </nz-form-control>
+                </nz-form-item>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-6">
+                <nz-form-item>
+                  <nz-form-label nzRequired class="client"  >صلاحيات الموظف</nz-form-label>
+                  <nz-form-control nzErrorTip="الرجاء إدخال البيانات المطلوبة">
+                    <nz-select formControlName="role">
+                      <nz-option nzValue="0" nzLabel="مدير"></nz-option>
+                      <nz-option nzValue="1" nzLabel="مالية"></nz-option>     
+                      <nz-option nzValue="2" nzLabel="مدخل بيانات"></nz-option>  
+                    </nz-select>
+                  </nz-form-control>
+                </nz-form-item>
+              </div>
+            </div>
+          </form>
+          <div *nzModalFooter>
+            <button nz-button nzType="default" (click)="handleCancel()">Cancel</button>
+            <button [disabled]="!validateForm.valid" nz-button nzType="primary" (click)="submitForm()">Submit</button>
+          </div>
+        </nz-modal>
+  </div>
+   <!-- nzScroll is for making the table scrollable if there is much data -->
+   <nz-table nzSize='small' dir="rtl" #fixedTable nzBordered #basicTable [nzData]="employees" [nzScroll]="{ x: '1150px', y: '480px' }">
+    <thead>
+      <tr>
+    <th>الإسم</th>
+    <th>رقم الهوية</th>
+    <th>الجنسية</th>
+    <th>المسمى الوظيفي</th>
+    <th>جوال</th>
+    <th>الإيميل</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let data of basicTable.data">
+        <td> {{data.fullName}} </td>
+        <td> {{data.empIdentity}} </td>
+        <td> {{data.nationality}} </td>
+        <td> {{data.jobTitle}} </td>
+        <td> {{data.phone}} </td>
+        <td> {{data.email}} </td>
+      </tr>
+    </tbody>
+  </nz-table>
+      </div>
+</div>
+

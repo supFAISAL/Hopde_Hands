@@ -1,0 +1,43 @@
+::ng-deep .ant-card-head-title{
+    font-family:Tajawal;
+    font-size:25px;
+    font-weight: bold;
+}
+
+::ng-deep .ant-card-head{
+    
+    background-color: #e8ded2;
+    
+}
+
+.rowStyle{
+    position: absolute;
+    top: 250px;
+    direction:rtl;
+}
+
+.img{
+    width:35px;
+    height:35px;
+    float:left;
+}
+
+.btnStyle{
+    margin:5px;
+    border-color:#5eaaa8;
+}
+
+.btnText{
+    text-align:center;
+    font-family:'Almarai';
+    font-size:17px;
+}
+
+nz-divider {
+    color: #333;
+    font-weight: normal;
+  }
+  .inner-box {
+    background: #0092ff;
+    padding: 8px 0;
+  }

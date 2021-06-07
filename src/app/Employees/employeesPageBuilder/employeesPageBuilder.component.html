@@ -1,0 +1,64 @@
+<nz-layout style="min-height: 100vh;">
+  <nz-layout>
+  
+    <nz-content style="margin: 0 16px">
+
+      
+     <router-outlet></router-outlet>
+
+
+      
+    </nz-content>
+    <nz-sider nzWidth="250px"  nzTheme="light">
+      <ul nz-menu style="height: 100%;" nzMode="inline">
+       <li routerLink="/Emp" nz-menu-item [nzMatchRouter]='true' nzSelected>
+         <i nz-icon nzType="mail"></i>
+         <span class="headStyle">الرئيسية</span>
+       </li>
+       <li nz-submenu><span title><i nz-icon nzType="appstore"></i><span class="headStyle">طلبات الإستقدام</span></span>
+       <ul>
+        <li  class="subStyle" nz-menu-item >إنشاء طلب</li>
+         <li routerLink="/Emp/Table" class="subStyle" nz-menu-item [nzMatchRouter]='true'>جميع الطلبات</li>
+
+       </ul>
+     </li>
+     <li nz-submenu><span title><i nz-icon nzType="appstore"></i><span class="headStyle">فترة الضمان</span></span>
+       <ul>
+         <li class="subStyle" nz-menu-item [nzMatchRouter]='true'>تتبع فترة الضمان</li>
+       </ul>
+     </li>
+     <li nz-submenu><span title><i nz-icon nzType="appstore"></i><span class="headStyle">حركات الصرف</span></span>
+       <ul>
+         <li routerLink="/Emp/External-Transfers" class="subStyle" nz-menu-item [nzMatchRouter]='true'>التحويلات الخارجية</li>
+         <li class="subStyle" nz-menu-item [nzMatchRouter]='true'>التكاليف الشهرية للعاملة</li>
+         <li routerLink="/Emp/Office-Expenses" class="subStyle" nz-menu-item [nzMatchRouter]='true'>كشف المصروفات</li>
+       </ul>
+     </li>
+     <li nz-submenu><span title><i nz-icon nzType="appstore"></i><span class="headStyle">سندات القبض</span></span>
+       <ul>
+         <li class="subStyle" nz-menu-item [nzMatchRouter]='true'>سند جديد</li>
+         <li class="subStyle" nz-menu-item [nzMatchRouter]='true'>أرصدة العملاء</li>
+         <li class="subStyle" nz-menu-item [nzMatchRouter]='true'>جميع سندات القبض</li>
+       </ul>
+     </li>
+     <li nz-submenu><span title><i nz-icon nzType="appstore"></i><span class="headStyle">المكاتب الخارجية</span></span>
+      <ul>
+        <li class="subStyle" nz-menu-item [nzMatchRouter]='true'>إضافة مكتب</li>
+        <li routerLink="/Emp/Offices" class="subStyle" nz-menu-item [nzMatchRouter]='true'>جميع المكاتب الخارجية</li>
+      </ul>
+    </li>
+    
+   </ul>
+   <div class="user">
+    <button (click)='LogOut()' style=" margin-left: 10px; text-align: center; font-family: Roboto Mono; margin-bottom: 10px;" nz-button nzType="primary" nzDanger nzBlock><i class="fas fa-sign-out-alt" style="padding-right: 5px;"></i>Log Out</button>
+
+   </div>
+   </nz-sider>
+  </nz-layout>
+</nz-layout> 
+
+
+
+
+
+

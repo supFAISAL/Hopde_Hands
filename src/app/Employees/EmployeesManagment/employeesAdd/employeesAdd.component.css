@@ -1,0 +1,77 @@
+.addBtn{
+    width: fit-content;
+    background-color: #1f3c88;
+    font-family: Tajawal,'Roboto Mono';
+    color: white;
+  
+  }
+  ::ng-deep .ant-modal-title{
+    font-family:Tajawal, 'Roboto Mono';
+      color: #474544;
+      font-size: 28px;
+      font-weight: 800;
+      letter-spacing: .5px;
+      text-align: center;
+      text-transform: uppercase;
+      margin-bottom: 35px;
+  }
+
+  .inputStyle{
+    font-family:Tajawal,'Roboto Mono';
+    font-size: larger;
+    direction: ltr;
+  }
+
+  .formHeader{
+    font-family: 'Roboto Mono','Harmattan';
+    color: #364f6b;
+    font-size: 23px;
+    font-weight: bolder;
+    letter-spacing: 0.5px;
+    text-align: center;
+    text-transform: uppercase;
+    margin-bottom: 35px;
+  
+  
+  }
+
+  ::ng-deep .vertical-center-modal .ant-modal {
+    top: 10px;
+  }
+
+  ::ng-deep .ant-form-item-explain.ant-form-item-explain-error {
+    font-family: Tajawal;
+  }
+
+  ::ng-deep .ant-message{
+    font-family: almarai,'Roboto Mono';
+  }
+
+  ::ng-deep .ant-form-item-label.client>label{
+    font-size: medium;
+    font-family:Almarai,Roboto Mono;
+  }
+
+  ::ng-deep .ant-select{
+    font-family:'Roboto Mono',Almarai;
+  
+  }
+  ::ng-deep .ant-select-item-option-content{
+    font-family:'Roboto Mono',Almarai;
+    font-size: medium;
+    font-weight: bolder;
+  }
+  .rowStyle{
+    position: relative;
+    top: 15%;
+  }
+
+  tr th{
+    text-align: center;
+    font-family: Tajawal,'Roboto Mono';
+  }
+  tr   {
+    text-align: center;
+    font-family: Tajawal,'Roboto Mono';
+    font-size: medium;
+  }
